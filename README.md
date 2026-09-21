@@ -1,5 +1,5 @@
 # Evaluating LLMs for Automatic Correction and Detection of Ontology Pitfalls
-Data, resources, and code for an ontology construction mapping review.
+Data, resources, and code for the automatic correction and detection of ontology pitfalls by LLMs.
 
 ## Abstract 
 <p style="text-align: justify;">
