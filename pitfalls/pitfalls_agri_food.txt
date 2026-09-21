@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oops:OOPSResponse xmlns:oops="http://www.oeg-upm.net/oops">
+<oops:Pitfall>
+<oops:Code>P04</oops:Code><oops:Name>Creating unconnected ontology elements</oops:Name>
+<oops:Description>Ontology elements (classes, object properties and datatype properties) are created isolated, with no relation to the rest of the ontology.	</oops:Description>
+<oops:Importance>Minor</oops:Importance>
+<oops:NumberAffectedElements>8</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#CoreProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PostOperation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PreliminaryOperation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ByProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#InputProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation</oops:AffectedElement>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P08</oops:Code><oops:Name>Missing annotations</oops:Name>
+<oops:Description>This pitfall consists in creating an ontology element and failing to provide human readable annotations attached to it. Consequently, ontology elements lack annotation properties that label them (e.g. rdfs:label, lemon:LexicalEntry, skos:prefLabel or skos:altLabel) or that define them (e.g. rdfs:comment or dc:description). This pitfall is related to the guidelines provided in [5].	</oops:Description>
+<oops:Importance>Minor</oops:Importance>
+<oops:NumberAffectedElements>76</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#InputProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PreliminaryOperation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#DirectPressing</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2015/aeo#AgriActivity</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ByProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2015/oae#Harvesting</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2015/aeo#AgriEntity</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#HeatProcessing</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Operation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#BacteriaAddition</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#CoreProduct</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Separation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PostOperation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#CubePackaging</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isOutputOf</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isObservedObjectOf</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#before</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Sulphur</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Pressing</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#WhiteWine</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Fermentation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Bottling</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Racking</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Bentonite</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Ageing</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#HotMaceration</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Bacterium</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#OtherAdditives</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#PumpingOver</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#CarbonicMaceration</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Pomace</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#RedWine</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Draining</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Grappe</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Stem</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Concentrate</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#ColdMaceration</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#EnzymeAddition</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#TemporaryStorage</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#FreeRun-Juice</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Nitrogen</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#FinishedWine</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Enzyme</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Sorting</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#AlcoholicFermentation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#ConventionalMaceration</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Press-Juice</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Must</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Maceration</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Berry</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#RoseWine</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Clarification</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#BiochemicalOperation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Packaging</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Grading</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Sulfitation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#NitrogenAddition</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Cleaning</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Dripping</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#MalolacticFermentation</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#YeastAddition</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Must-AF</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Mixing</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#RedWinePressing</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Destemming</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Crushing</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#Yeast</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasAttribute</oops:AffectedElement>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P10</oops:Code><oops:Name>Missing disjointness</oops:Name>
+<oops:Description>The ontology lacks disjoint axioms between classes or between properties that should be defined as disjoint. This pitfall is related with the guidelines provided in [6], [2] and [7].        </oops:Description>
+<oops:Importance>Important</oops:Importance>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P11</oops:Code><oops:Name>Missing domain or range in properties</oops:Name>
+<oops:Description>Object and/or datatype properties without domain or range (or none of them) are included in the ontology. 	</oops:Description>
+<oops:Importance>Important</oops:Importance>
+<oops:NumberAffectedElements>8</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#before</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasAttribute</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isObservedObjectOf</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isOutputOf</oops:AffectedElement>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P13</oops:Code><oops:Name>Inverse relationships not explicitly declared</oops:Name>
+<oops:Description>This pitfall appears when any relationship (except for those that are defined as symmetric properties using owl:SymmetricProperty) does not have an inverse relationship (owl:inverseOf) defined within the ontology.	</oops:Description>
+<oops:Importance>Minor</oops:Importance>
+<oops:NumberAffectedElements>8</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isOutputOf</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isObservedObjectOf</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasAttribute</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#before</oops:AffectedElement>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P21</oops:Code><oops:Name>Using a miscellaneous class</oops:Name>
+<oops:Description>This pitfall refers to the creation of a class with the only goal of classifying the instances that do not belong to any of its sibling classes (classes with which the miscellaneous problematic class shares a common direct ancestor).     </oops:Description>
+<oops:Importance>Minor</oops:Importance>
+<oops:NumberAffectedElements>1</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#OtherAdditives</oops:AffectedElement>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P22</oops:Code><oops:Name>Using different naming conventions in the ontology</oops:Name>
+<oops:Description>The ontology elements are not named following the same convention (for example CamelCase or use of delimiters as &quot;-&quot; or &quot;_&quot;) . Some notions about naming conventions are provided in [2].	</oops:Description>
+<oops:Importance>Minor</oops:Importance>
+<oops:NumberAffectedElements>1</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#FreeRun-Juice</oops:AffectedElement>
+<oops:AffectedElement>http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct</oops:AffectedElement>
+</oops:Affects>
+</oops:Pitfall>
+</oops:OOPSResponse>

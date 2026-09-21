@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="http://purl.obolibrary.org/obo/exo.owl" uri="exo.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="http://purl.obolibrary.org/obo/geo.owl/" uri="geo.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="http://www.mistea.supagro.inra.fr/ontologies/2015/aeo" uri="green_ai_star2.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="duplicate:http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo" uri="agri_food.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="duplicate:http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo" uri="agri_food_star.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="duplicate:http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo" uri="geo_star.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="duplicate:http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo" uri="green_ai.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="duplicate:http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo" uri="green_ai_star.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="duplicate:http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo" uri="ontopfas_star2.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="duplicate:https://w3id.org/OntoPFAS" uri="ontopfas.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1780644171087" name="duplicate:https://w3id.org/OntoPFAS" uri="ontopfas_star.rdf"/>
+    </group>
+</catalog>

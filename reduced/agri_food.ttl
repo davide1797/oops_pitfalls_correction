@@ -1,0 +1,197 @@
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo> rdf:type owl:Ontology ;
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/language> rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/publisher> rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/rights> rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#before> rdf:type owl:ObjectProperty ;
+rdfs:domain [ rdf:type owl:Class ;
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasAttribute> rdf:type owl:ObjectProperty ;
+rdfs:domain [ rdf:type owl:Class ;
+rdfs:label "has attribute"@en .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput> rdf:type owl:ObjectProperty ;
+rdfs:domain [ rdf:type owl:Class ;
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject> rdf:type owl:ObjectProperty ;
+rdfs:range [ rdf:type owl:Class ;
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput> rdf:type owl:ObjectProperty ;
+rdfs:domain [ rdf:type owl:Class ;
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf> rdf:type owl:ObjectProperty ;
+rdfs:range [ rdf:type owl:Class ;
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isObservedObjectOf> rdf:type owl:ObjectProperty ;
+rdfs:domain [ rdf:type owl:Class ;
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isOutputOf> rdf:type owl:ObjectProperty ;
+rdfs:range [ rdf:type owl:Class ;
+<http://www.mistea.supagro.inra.fr/ontologies/2015/aeo#AgriActivity> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2015/aeo#AgriEntity> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2015/oae#Harvesting> rdf:type owl:Class .
+:Ageing rdf:type owl:Class ;
+rdfs:subClassOf :BiochemicalOperation ;
+rdfs:label "ageing"@en .
+:AlcoholicFermentation rdf:type owl:Class ;
+rdfs:subClassOf :Fermentation ;
+rdfs:label "Alcoholic Fermentation"@en .
+:BacteriaAddition rdf:type owl:Class ;
+rdfs:subClassOf :Mixing .
+:Bacterium rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> ;
+rdfs:label "Bacterium"@en .
+:Bentonite rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> ;
+rdfs:label "Bentonite"@en .
+:Berry rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#InputProduct> ;
+rdfs:label "Berry"@en .
+:BiochemicalOperation rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation> ;
+rdfs:label "biochemical operation"@en .
+:Bottling rdf:type owl:Class ;
+rdfs:subClassOf :Packaging ;
+rdfs:label "Bottling"@en .
+:CarbonicMaceration rdf:type owl:Class ;
+rdfs:subClassOf :Maceration ;
+rdfs:label "Carbonic Maceration"@en .
+:Clarification rdf:type owl:Class ;
+rdfs:subClassOf :Separation ;
+rdfs:label "Separation"@en .
+:Cleaning rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PreliminaryOperation> ;
+rdfs:label "Cleaning"@en .
+:ColdMaceration rdf:type owl:Class ;
+rdfs:subClassOf :Maceration ;
+rdfs:label "Cold Maceration"@en .
+:Concentrate rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> ;
+rdfs:label "Concentrate"@en .
+:ConventionalMaceration rdf:type owl:Class ;
+rdfs:subClassOf :Maceration ;
+rdfs:label "Conventional Maceration"@en .
+:Crushing rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation> ;
+rdfs:label "Crushing"@en .
+:CubePackaging rdf:type owl:Class ;
+rdfs:subClassOf :Packaging .
+:Destemming rdf:type owl:Class ;
+rdfs:subClassOf :Separation ;
+rdfs:label "Destemming"@en .
+:DirectPressing rdf:type owl:Class ;
+rdfs:subClassOf :Pressing .
+:Draining rdf:type owl:Class ;
+rdfs:subClassOf :Separation ;
+rdfs:label "Draining"@en .
+:Dripping rdf:type owl:Class ;
+rdfs:subClassOf :Separation ;
+rdfs:label "Dripping"@en .
+:Enzyme rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> ;
+rdfs:label "Enzyme"@en .
+:EnzymeAddition rdf:type owl:Class ;
+rdfs:subClassOf :Mixing ;
+rdfs:label "Enzyme Addition"@en .
+:Fermentation rdf:type owl:Class ;
+rdfs:subClassOf :BiochemicalOperation ;
+rdfs:label "Fermentation"@en .
+:FinishedWine rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#CoreProduct> ;
+rdfs:label "Finished Wine"@en .
+:FreeRun-Juice rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct> ;
+rdfs:label "Free Run-Juice"@en .
+:Grading rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PreliminaryOperation> ;
+rdfs:label "Grading"@en .
+:Grappe rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#InputProduct> ;
+rdfs:label "Grappe"@en .
+:HeatProcessing rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation> .
+:HotMaceration rdf:type owl:Class ;
+rdfs:subClassOf :Maceration ;
+rdfs:label "Hot Maceration"@en .
+:Maceration rdf:type owl:Class ;
+rdfs:subClassOf :Separation ;
+rdfs:label "Maceration"@en .
+:MalolacticFermentation rdf:type owl:Class ;
+rdfs:subClassOf :Fermentation ;
+rdfs:label "Malolactic Fermentation"@en .
+:Mixing rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation> ;
+rdfs:label "Mixing"@en .
+:Must rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct> ;
+rdfs:label "Must"@en .
+:Must-AF rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct> ;
+rdfs:label "Must-AF"@en .
+:Nitrogen rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> ;
+rdfs:label "Nitrogen"@en .
+:NitrogenAddition rdf:type owl:Class ;
+rdfs:subClassOf :Mixing ;
+rdfs:label "Nitrogen Addition"@en .
+:OtherAdditives rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> ;
+rdfs:label "Other Additives"@en .
+:Packaging rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PostOperation> ;
+rdfs:label "Packaging"@en .
+:Pomace rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ByProduct> ;
+rdfs:label "Pomace"@en .
+:Press-Juice rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct> ;
+rdfs:label "Press-Juice"@en .
+:Pressing rdf:type owl:Class ;
+rdfs:subClassOf :Separation ;
+rdfs:label "Pressing"@en .
+:PumpingOver rdf:type owl:Class ;
+rdfs:subClassOf :Mixing ;
+rdfs:label "Pumping Over"@en .
+:Racking rdf:type owl:Class ;
+rdfs:subClassOf :Separation ;
+rdfs:label "Racking"@en .
+:RedWine rdf:type owl:Class ;
+rdfs:subClassOf :FinishedWine ;
+rdfs:label "Red Wine"@en .
+:RedWinePressing rdf:type owl:Class ;
+rdfs:subClassOf :Pressing ;
+rdfs:label "Red Wine Pressing"@en .
+:RoseWine rdf:type owl:Class ;
+rdfs:subClassOf :FinishedWine ;
+rdfs:label "Rose Wine"@en .
+:Separation rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation> .
+:Sorting rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PreliminaryOperation> ;
+rdfs:label "Sorting"@en .
+:Stem rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ByProduct> ;
+rdfs:label "Stem"@en .
+:Sulfitation rdf:type owl:Class ;
+rdfs:subClassOf :Mixing ;
+rdfs:label "Sulfitation"@en .
+:Sulphur rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> ;
+rdfs:label "Sulphur"@en .
+:TemporaryStorage rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PreliminaryOperation> ;
+rdfs:label "Temporary Storage"@en .
+:WhiteWine rdf:type owl:Class ;
+rdfs:subClassOf :FinishedWine ;
+rdfs:label "White Wine"@en .
+:Yeast rdf:type owl:Class ;
+rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> ;
+rdfs:label "Yeast"@en .
+:YeastAddition rdf:type owl:Class ;
+rdfs:subClassOf :Mixing ;
+rdfs:label "Yeast Addition"@en .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ByProduct> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#CoreProduct> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#InputProduct> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Operation> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PostOperation> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PreliminaryOperation> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product> rdf:type owl:Class .
+<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> rdf:type owl:Class .

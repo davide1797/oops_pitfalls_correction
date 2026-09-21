@@ -1,0 +1,408 @@
+=== OOPS PITFALLS ANALYSIS ===
+Here are the concrete axioms addressing the **OOPS pitfalls** (where applicable and without introducing new ontological problems):
+
+---
+
+### **1 - Creating synonyms as classes**
+**Axiom:**
+```turtle
+ontopfas:MoleculeMobility owl:equivalentClass <https://w3id.org/OntoPFAS#PfasMobility> .
+```
+
+---
+
+### **2 - Creating the relationship "is" instead of using `rdfs:subClassOf` or `owl:sameAs`**
+**Axiom:**
+```turtle
+ontopfas:is rdfs:subPropertyOf rdf:type .
+```
+*(If `ontopfas:is` is meant for class membership, it should be a subproperty of `rdf:type` or removed. If it’s for subclass relations, replace with `rdfs:subClassOf`.)*
+
+---
+
+### **3 - Creating unconnected ontology elements**
+**Axiom:**
+```turtle
+obo:ExO_0000003 rdfs:subClassOf ontopfas:Pfas .
+```
+*(Example: Link `ExO_0000003` to a relevant class like `ontopfas:Pfas` or `obo:CHEBI_24431` if applicable.)*
+
+---
+
+### **4 - Defining wrong inverse relationships**
+**Axiom (for `ontopfas:affectedBy` and `ontopfas:affects`):**
+```turtle
+ontopfas:affectedBy owl:inverseOf ontopfas:affects .
+```
+*(If these are not true inverses, remove the `owl:inverseOf` declaration.)*
+
+---
+
+### **5 - Including cycles in a class hierarchy**
+**Axiom (for `obo:CHEBI_24431` and `obo:PCO_0000031`):**
+```turtle
+obo:CHEBI_24431 rdfs:subClassOf obo:PCO_0000031 .
+obo:PCO_0000031 rdfs:subClassOf obo:CHEBI_24431 .  # Remove this line (cycle)
+```
+*(Replace with a proper hierarchy or remove the cycle.)*
+
+---
+
+### **6 - Merging different concepts in the same class**
+**Axiom:**
+```turtle
+ontopfas:MaleAndFemale rdfs:subClassOf ontopfas:Female, ontopfas:Male .
+```
+*(If `MaleAndFemale` is a valid concept, define it as a disjoint union or remove redundancy. Alternatively, split into separate classes.)*
+
+---
+
+### **7 - Missing annotations**
+**Axioms:**
+```turtle
+# Missing rdfs:label
+ontopfas:IntellectualWork rdfs:label "Intellectual Work" .
+ontopfas:PhysicalObject rdfs:label "Physical Object" .
+ontopfas:OtherGenders rdfs:label "Other Genders" .
+ontopfas:Paper rdfs:label "Paper" .
+ontopfas:MoleculeMobility rdfs:label "Molecule Mobility" .
+ontopfas:notValidInPlace rdfs:label "Not Valid in Place" .
+ontopfas:writtenBy rdfs:label "Written By" .
+ontopfas:printedOn rdfs:label "Printed On" .
+
+# Missing skos:definition (if applicable)
+ontopfas:IntellectualWork skos:definition "A conceptual or perceptible work, such as a book, article, or dataset." .
+ontopfas:PhysicalObject skos:definition "A tangible object, such as a paper or product." .
+ontopfas:OtherGenders skos:definition "Genders other than Male or Female." .
+ontopfas:MoleculeMobility skos:definition "The mobility characteristics of a PFAS molecule." .
+ontopfas:notValidInPlace skos:definition "A regulation is not valid in a given place." .
+ontopfas:writtenBy skos:definition "A person who authored a paper." .
+ontopfas:printedOn skos:definition "A product or medium on which a paper was printed." .
+```
+
+---
+
+### **8 - Missing domain or range in properties**
+**Axioms:**
+```turtle
+# Example: RO_0002219 (surrounded_by) lacks domain/range
+obo:RO_0002219 rdfs:domain obo:BFO_0000040 ;  # Spatial region
+rdfs:range obo:BFO_0000040 .              # Spatial region
+
+# Example: SCDO_1000202 (caused_by) lacks domain
+obo:SCDO_1000202 rdfs:domain obo:ExO_0000077 ;  # Biological response
+rdfs:range obo:ExO_0000077 .              # Biological response
+
+# Example: RO_0003001 (produced_by) lacks domain/range
+obo:RO_0003001 rdfs:domain ontopfas:Pfas ;
+rdfs:range schema:Organization .
+
+# Example: RO_0002221 (surrounds) lacks domain/range
+obo:RO_0002221 rdfs:domain obo:BFO_0000040 ;
+rdfs:range obo:BFO_0000040 .
+
+# Example: SIO_000655 (transforms_into) lacks domain/range
+<http://semanticscience.org/resource/SIO_000655> rdfs:domain obo:CHEBI_24431 ;
+rdfs:range obo:CHEBI_24431 .
+
+# Example: ontopfas:source (property) lacks domain/range
+ontopfas:source rdfs:domain ontopfas:Pfas ;
+rdfs:range <http://www.w3.org/ns/dcat#Dataset> .
+```
+
+---
+
+### **9 - Equivalent properties not explicitly declared**
+**Axiom (for duplicated properties like `ontopfas:source` and `dcterms:source`):**
+```turtle
+ontopfas:source owl:equivalentProperty dcterms:source .
+```
+
+---
+
+### **10 - Inverse relationships not explicitly declared**
+**Axiom (for missing inverses, e.g., `ontopfas:source_of` and `dcterms:source`):**
+```turtle
+ontopfas:source_of owl:inverseOf dcterms:source .
+```
+
+---
+
+### **11 - Defining multiple domains or ranges in properties**
+**Axiom (for `ontopfas:hasGender`):**
+```turtle
+ontopfas:hasGender rdfs:domain schema:Person ;
+rdfs:range owl:Class .  # Replace with owl:unionOf if needed
+```
+*(If `hasGender` should only accept `ontopfas:Female`, `ontopfas:Male`, or `ontopfas:OtherGenders`, restrict the range to a union of those classes.)*
+
+---
+
+### **12 - Misusing ontology annotations**
+**Axiom (for `ontopfas:hasGender`):**
+```turtle
+# Correct usage: rdfs:label should be a string, not a class
+ontopfas:hasGender rdfs:label "has gender" .
+```
+*(If `hasGender` is a property, its label should not reference a class. Ensure proper annotation usage.)*
+
+---
+
+### **13 - Using a miscellaneous class**
+**Axiom (for `ontopfas:OtherGenders`):**
+```turtle
+ontopfas:OtherGenders rdfs:subClassOf schema:Person ;
+rdfs:disjointWith ontopfas:Female, ontopfas:Male .
+```
+*(If `OtherGenders` is a miscellaneous class, replace with a proper disjoint union or remove.)*
+
+---
+
+### **14 - Using different naming conventions**
+**Axiom (for `obo:ExO_0000022` and `ontopfas:NonPolymerPfas`):**
+```turtle
+# Standardize to CamelCase or snake_case (e.g., NonPolymerPfas → nonPolymerPfas)
+ontopfas:NonPolymerPfas rdfs:label "NonPolymerPfas" .
+```
+*(Consistent naming improves readability; e.g., `ExO_0000022` could be renamed to `ExposureStimulus` if following CamelCase.)*
+
+---
+
+### **15 - Using recursive definitions**
+**Axiom (for `obo:RO_0002221`):**
+```turtle
+# Remove self-reference in definition or domain/range
+obo:RO_0002221 rdfs:domain obo:BFO_0000040 ;
+rdfs:range obo:BFO_0000040 .
+```
+*(Ensure no class appears in its own `rdfs:subClassOf`, `owl:equivalentClass`, or domain/range.)*
+
+---
+
+### **16 - Defining a relationship as inverse to itself**
+**Axiom (for `obo:RO_0002221`):**
+```turtle
+obo:RO_0002221 owl:inverseOf obo:RO_0002221 .  # Remove this (inverse of itself)
+```
+*(Replace with `owl:SymmetricProperty` if appropriate.)*
+
+---
+
+### **17 - Defining inverse relationships for a symmetric one**
+**Axiom (for `ontopfas:locationInPlace` and `obo:RO_0002221`):**
+```turtle
+# If symmetric, remove inverseOf
+ontopfas:locationInPlace owl:inverseOf ontopfas:locationInPlace .  # Remove this
+```
+*(If `locationInPlace` is symmetric, it should not have an inverse unless it’s also asymmetric in some cases.)*
+
+---
+
+### **18 - Defining wrong equivalent properties**
+**Axiom (for `ontopfas:locationInPlace` and `ontopfas:locationInEnvironment`):**
+```turtle
+# Remove owl:equivalentProperty if semantics differ
+ontopfas:locationInPlace owl:equivalentProperty ontopfas:locationInEnvironment .  # Remove this
+```
+*(Ensure equivalent properties have identical semantics; otherwise, remove the equivalence.)*
+
+---
+
+### **19 - Defining wrong symmetric relationships**
+**Axiom (for `ontopfas:locationInPlace`):**
+```turtle
+# Remove owl:SymmetricProperty if not symmetric
+ontopfas:locationInPlace owl:SymmetricProperty .  # Remove this
+```
+*(Only use `owl:SymmetricProperty` if `A locationInPlace B` implies `B locationInPlace A`.)*
+
+---
+
+### **20 - Defining wrong transitive relationships**
+**Axiom (for `ontopfas:locationInPlace`):**
+```turtle
+# Remove owl:TransitiveProperty if not transitive
+ontopfas:locationInPlace owl:TransitiveProperty .  # Remove this
+```
+*(Only use `owl:TransitiveProperty` if `A locationInPlace B` and `B locationInPlace C` imply `A locationInPlace C`.)*
+
+---
+
+=== PITFALLS DISCOVERY ===
+### **Ontological Pitfalls & Resolutions**
+
+#### **1. Inconsistent Property Domains/Ranges**
+- **Pitfall**: `ontopfas:affectedBy` and `ontopfas:affects` have mismatched domains/ranges:
+  - `affectedBy` (domain: `schema:Place`, range: `obo:ExO_0000022`)
+  - `affects` (domain: `obo:ExO_0000022`, range: `schema:Place`)
+  - **Issue**: A PFAS (`obo:ExO_0000022`) cannot be both a **Place** and an **Exposure stimulus** (inverse relation).
+- **Solution**: Align domains/ranges with **Pfas** (`ontopfas:Pfas`) instead of `ExO_0000022` (which is an exposure event, not a PFAS).
+  ```turtle
+  ontopfas:affectedBy rdfs:domain ontopfas:Pfas ;
+                      rdfs:range schema:Place .
+  ontopfas:affects rdfs:domain schema:Place ;
+                   rdfs:range ontopfas:Pfas .
+  ```
+
+---
+
+#### **2. Incorrect Inverse Property Definition**
+- **Pitfall**: `obo:RO_0002221` ("surrounds") is marked as **symmetric** but has an inverse (`obo:RO_0002220`).
+  - **Issue**: Symmetric properties should not have distinct inverses unless they are also **transitive** (which they are not).
+- **Solution**: Remove `owl:symmetric` or clarify that it is **asymmetric** (since "surrounded by" ≠ "surrounds").
+  ```turtle
+  obo:RO_0002221 rdf:type owl:ObjectProperty ;
+                 owl:inverseOf obo:RO_0002220 ;
+                 rdfs:label "surrounds" .
+  ```
+
+---
+
+#### **3. Misaligned Class Hierarchy (Pfas vs. CHEBI)**
+- **Pitfall**: `ontopfas:Pfas` is a subclass of `obo:CHEBI_24431` ("Chemical entity"), but `obo:CHEBI_24531` ("Perfluoroalkyl") is also a subclass of `ontopfas:Pfas`.
+  - **Issue**: Circular hierarchy (`Pfas` → `CHEBI_24431` → `CHEBI_24531` → `Pfas`).
+- **Solution**: Either:
+  - Make `ontopfas:Pfas` a **disjoint** subclass of `obo:CHEBI_24431` (if PFAS ≠ CHEBI chemicals), or
+  - Align `ontopfas:Pfas` under a broader **PCO** (e.g., `obo:PCO_0000031` → `obo:CHEBI_24431`).
+  ```turtle
+  ontopfas:Pfas rdfs:subClassOf obo:PCO_0000031 .  # (if PFAS are organismal entities)
+  ```
+
+---
+
+#### **4. Ambiguous Property Domains (e.g., `ontopfas:source`)**
+- **Pitfall**: `ontopfas:source` is defined as an **ObjectProperty** but lacks constraints.
+  - **Issue**: Could link any class to any other, reducing clarity.
+- **Solution**: Restrict domain to `ontopfas:Pfas` and range to `obo:CHEBI_24431` or `schema:Organization`.
+  ```turtle
+  ontopfas:source rdfs:domain ontopfas:Pfas ;
+                   rdfs:range schema:Organization .
+  ```
+
+---
+
+#### **5. Inconsistent Use of Datatype vs. Object Properties**
+- **Pitfall**: `ontopfas:isEther` and `ontopfas:isHydrophilic` are **DatatypeProperties** (range: `xsd:boolean`), but could be **ObjectProperties** linking to specific classes (e.g., `ontopfas:EtherPFAS`).
+  - **Issue**: Mixing **Datatype** and **Object** properties for similar concepts.
+- **Solution**: Either:
+  - Enumerate possible values as classes (e.g., `ontopfas:EtherPFAS` as subclass of `ontopfas:Pfas`), or
+  - Keep as **DatatypeProperty** but add **restrictions** (e.g., `owl:hasValue true`).
+  ```turtle
+  ontopfas:EtherPFAS rdfs:subClassOf ontopfas:Pfas ;
+                      skos:definition "PFAS with ether functional group." .
+  ```
+
+---
+
+#### **6. Undefined Property Restrictions (e.g., `ontopfas:LongChainPfas`)**
+- **Pitfall**: `ontopfas:LongChainPfas` is defined via **Restriction** but lacks formal axioms.
+  - **Issue**: No clear way to enforce "PFCA with ≥8 carbons" or "PFSA with ≥6 carbons."
+- **Solution**: Add **SWRL** or **OWL** restrictions:
+  ```turtle
+  ontopfas:LongChainPfas owl:equivalentClass [
+    a owl:Restriction ;
+    owl:onProperty ontopfas:numberOfCarbons ;
+    owl:minCardinality 8 ;
+    owl:qualifiedClass ontopfas:Pfca
+  ] ,
+  [
+    a owl:Restriction ;
+    owl:onProperty ontopfas:numberOfCarbons ;
+    owl:minCardinality 6 ;
+    owl:qualifiedClass ontopfas:Pfsa
+  ] .
+  ```
+
+---
+
+#### **7. Missing Disjointness Between PFAS Subclasses**
+- **Pitfall**: `ontopfas:Pfca` and `ontopfas:Pfsa` are subclasses of `ontopfas:Pfaa` but may overlap (e.g., a PFAS with both carboxylic and sulfonic groups).
+  - **Issue**: No **disjointness** axiom prevents incorrect classification.
+- **Solution**: Add disjointness:
+  ```turtle
+  ontopfas:Pfca owl:disjointWith ontopfas:Pfsa .
+  ```
+
+---
+
+#### **8. Inconsistent Property Labels (e.g., `ontopfas:is`)**
+- **Pitfall**: `ontopfas:is` is defined as an **ObjectProperty** without domain/range or inverse.
+  - **Issue**: Ambiguous purpose (could be a reification or identity relation).
+- **Solution**: Replace with a **DatatypeProperty** (e.g., `owl:sameAs`) or define domain/range:
+  ```turtle
+  ontopfas:is rdfs:subPropertyOf owl:sameAs .
+  ```
+
+---
+
+#### **9. Misaligned `ontopfas:matrix` and `ontopfas:matrixOf`**
+- **Pitfall**: `ontopfas:matrix` links `sosa:Observation` → `ENVO_01000408` (Environmental zone), but `ontopfas:matrixOf` links `ENVO_01000408` → `sosa:Observation`.
+  - **Issue**: `ENVO_01000408` is an **environmental zone**, not a **matrix** (which should be a **substance** or **material**).
+- **Solution**: Use `obo:ENVO_0000000` (Environment) or `obo:CHEBI_24431` (Chemical entity) as range.
+  ```turtle
+  ontopfas:matrix rdfs:domain sosa:Observation ;
+                   rdfs:range obo:CHEBI_24431 .
+  ontopfas:matrixOf rdfs:domain obo:CHEBI_24431 ;
+                    rdfs:range sosa:Observation .
+  ```
+
+---
+
+#### **10. Ambiguous `ontopfas:validInPlace`**
+- **Pitfall**: `ontopfas:validInPlace` links `Regulation` → `schema:Place`, but its definition mentions "continent."
+  - **Issue**: Should it be restricted to **Continent** (`schema:Continent`)?
+- **Solution**: Add **domain restriction** or **SWRL rule**:
+  ```turtle
+  ontopfas:validInPlace rdfs:domain ontopfas:Regulation ;
+                       rdfs:range schema:Continent .
+  ```
+
+---
+#### **11. Missing Property Chain Axioms**
+- **Pitfall**: No **property chain** axioms for transitive relations like `ontopfas:containsMeasurement` → `ontopfas:measuredIn`.
+  - **Issue**: Could lead to logical inconsistencies (e.g., `A containsMeasurement B` and `B measuredIn C` but no clear path).
+- **Solution**: Add **property chain** (e.g., `ontopfas:containsMeasurement owl:propertyChainAxiom (ontopfas:measuredIn)`).
+  ```turtle
+  ontopfas:containsMeasurement owl:propertyChainAxiom (ontopfas:measuredIn) .
+  ```
+
+---
+#### **12. Undefined `ontopfas:Paper` Hierarchy**
+- **Pitfall**: `ontopfas:Paper` is a subclass of `ontopfas:PhysicalObject`, but `ontopfas:PhysicalObject` is a subclass of `dcat:Dataset` (which is incorrect).
+  - **Issue**: `Paper` should not be a subclass of `Dataset`.
+- **Solution**: Align `ontopfas:Paper` under `schema:CreativeWork` or `schema:ScholarlyArticle`.
+  ```turtle
+  ontopfas:Paper rdfs:subClassOf schema:CreativeWork .
+  ```
+
+---
+#### **13. Inconsistent `ontopfas:stimulatedBy` (Domain/Range)**
+- **Pitfall**: `ontopfas:stimulatedBy` links `ExO_0000022` → `ontopfas:Pfas`, but `ExO_0000022` is an **exposure event**, not a **PFAS**.
+  - **Issue**: Should be `ontopfas:Pfas` → `ExO_0000022` (or vice versa with clearer semantics).
+- **Solution**: Correct domain/range:
+  ```turtle
+  ontopfas:stimulatedBy rdfs:domain ontopfas:Pfas ;
+                        rdfs:range obo:ExO_0000022 .
+  ```
+
+---
+#### **14. Missing Functional Group Constraints**
+- **Pitfall**: `ontopfas:functionalGroup` is a **subPropertyOf part_of**, but no **cardinality** or **exactness** constraints exist.
+  - **Issue**: A PFAS could have multiple functional groups (e.g., PFCA + PFSA).
+- **Solution**: Add **maxCardinality 1** or **SWRL rules** to enforce exclusivity.
+  ```turtle
+  ontopfas:functionalGroup rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty ontopfas:functionalGroup ;
+    owl:maxCardinality 1
+  ] .
+  ```
+
+---
+#### **15. Inconsistent `ontopfas:sourceText` (Domain/Range)**
+- **Pitfall**: `ontopfas:sourceText` links `schema:Organization` → `xsd:string`, but its definition is unclear.
+  - **Issue**: Should it be a **DatatypeProperty** for metadata or an **ObjectProperty** linking to `schema:Text`?
+- **Solution**: Replace with `schema:description` or clarify purpose.
+  ```turtle
+  ontopfas:sourceText rdfs:subPropertyOf schema:description .
+  ```

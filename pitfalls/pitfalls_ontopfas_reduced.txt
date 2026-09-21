@@ -1,0 +1,14 @@
+P04: Creating unconnected ontology elements
+Affected: http://purl.obolibrary.org/obo/ExO_0000003
+
+P11: Missing domain or range in properties
+Affected: http://purl.obolibrary.org/obo/SCDO_1000202
+Affected: http://purl.obolibrary.org/obo/RO_0002219
+Affected: http://purl.obolibrary.org/obo/RO_0003302
+Affected: http://purl.allotrope.org/ontologies/property#AFX_0001048
+Affected: http://purl.obolibrary.org/obo/RO_0002020
+
+P22: Using different naming conventions in the ontology
+Affected: http://purl.obolibrary.org/obo/ExO_0000022
+Affected: https://w3id.org/OntoPFAS#NonPolymerPfas
+

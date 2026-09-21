@@ -1,0 +1,126 @@
+P02: Creating synonyms as classes
+Affected: https://w3id.org/OntoPFAS#Object
+Affected: https://w3id.org/OntoPFAS#PFOA
+Affected: https://w3id.org/OntoPFAS#PFOS
+Affected: https://w3id.org/OntoPFAS#FluorinatedPolymer
+Affected: https://w3id.org/OntoPFAS#PFASContamination
+
+P03: Creating the relationship "is" instead of using "rdfs:subClassOf", "rdf:type" or "owl:sameAs"
+Affected: https://w3id.org/OntoPFAS#is
+
+P04: Creating unconnected ontology elements
+Affected: http://purl.obolibrary.org/obo/ExO_0000076
+Affected: https://w3id.org/OntoPFAS#PerfluorooctanesulfonicAcid
+Affected: https://w3id.org/OntoPFAS#PfasAndMolecule
+Affected: http://purl.obolibrary.org/obo/ExO_0000077
+Affected: https://w3id.org/OntoPFAS#Fluoropolymer
+
+P05: Defining wrong inverse relationships
+
+P06: Including cycles in a class hierarchy
+Affected:  http://purl.obolibrary.org/obo/PCO_0000031
+Affected:  http://purl.obolibrary.org/obo/CHEBI_24431 https://w3id.org/OntoPFAS#FunctionalGroup
+Affected:  http://www.w3.org/ns/sosa/Observation urn:absolute:ontopfas#Presumptive
+Affected:  http://purl.obolibrary.org/obo/ExO_0000076 http://purl.obolibrary.org/obo/ExO_0000003
+Affected:  http://purl.obolibrary.org/obo/ExO_0000077
+
+P07: Merging different concepts in the same class
+Affected: https://w3id.org/OntoPFAS#PfasAndMolecule
+Affected: https://w3id.org/OntoPFAS#FluorinatedAndNonFluorinated
+Affected: https://w3id.org/OntoPFAS#MaleAndFemale
+Affected: https://w3id.org/OntoPFAS#PerAndPolyfluoroalkylSubstance
+Affected: https://w3id.org/OntoPFAS#PersonAndAnimal
+
+P08: Missing annotations
+Affected: https://w3id.org/OntoPFAS#PFASPollution
+Affected: https://w3id.org/OntoPFAS#Manufacturer
+Affected: https://w3id.org/OntoPFAS#PersonAndAnimal
+Affected: https://w3id.org/OntoPFAS#RemediationTechnique
+Affected: https://w3id.org/OntoPFAS#ExposureRoute
+
+P10: Missing disjointness
+
+P11: Missing domain or range in properties
+Affected: http://purl.obolibrary.org/obo/SCDO_1000202
+Affected: http://purl.obolibrary.org/obo/RO_0002219
+Affected: https://w3id.org/OntoPFAS#contributor
+Affected: http://purl.obolibrary.org/obo/RO_0003302
+Affected: http://purl.allotrope.org/ontologies/property#AFX_0001048
+
+P12: Equivalent properties not explicitly declared
+
+P13: Inverse relationships not explicitly declared
+Affected: https://w3id.org/OntoPFAS#hasRegulation
+Affected: https://w3id.org/OntoPFAS#source
+Affected: https://w3id.org/OntoPFAS#writtenBy
+Affected: https://w3id.org/OntoPFAS#is
+Affected: https://w3id.org/OntoPFAS#found
+
+P19: Defining multiple domains or ranges in properties
+Affected: https://w3id.org/OntoPFAS#hasGender
+Affected: https://w3id.org/OntoPFAS#usedBy
+Affected: https://w3id.org/OntoPFAS#validInEnvironment
+Affected: https://w3id.org/OntoPFAS#writtenBy
+Affected: https://w3id.org/OntoPFAS#validInPlace
+
+P20: Misusing ontology annotations
+Affected: https://w3id.org/OntoPFAS#hasGender
+
+P21: Using a miscellaneous class
+Affected: https://w3id.org/OntoPFAS#OtherGenders
+
+P22: Using different naming conventions in the ontology
+Affected: http://purl.obolibrary.org/obo/CHEBI_24431
+Affected: https://w3id.org/OntoPFAS#PFASPollution
+
+P24: Using recursive definitions
+Affected: http://purl.obolibrary.org/obo/RO_0002219
+Affected: https://w3id.org/OntoPFAS#usedBy
+Affected: http://purl.obolibrary.org/obo/RO_0002221
+Affected: https://w3id.org/OntoPFAS#stimulatedBy
+Affected: http://www.w3.org/ns/prov#used
+
+P25: Defining a relationship as inverse to itself
+Affected: http://purl.obolibrary.org/obo/RO_0002219
+Affected: https://w3id.org/OntoPFAS#usedBy
+Affected: http://purl.obolibrary.org/obo/RO_0002221
+Affected: https://w3id.org/OntoPFAS#stimulatedBy
+Affected: http://www.w3.org/ns/prov#used
+
+P26: Defining inverse relationships for a symmetric one
+Affected: https://w3id.org/OntoPFAS#locationInPlace
+Affected: https://w3id.org/OntoPFAS#locationInEnvironment
+Affected: https://w3id.org/OntoPFAS#pfasMeasuredIn
+Affected: http://purl.obolibrary.org/obo/RO_0002221
+Affected: https://w3id.org/OntoPFAS#includesLocation
+
+P27: Defining wrong equivalent properties
+Affected: https://w3id.org/OntoPFAS#locationInPlace https://w3id.org/OntoPFAS#locationInEnvironment
+Affected: https://w3id.org/OntoPFAS#hasExposureRoute https://w3id.org/OntoPFAS#homeLocationOf
+Affected: https://w3id.org/OntoPFAS#isRegulatedBy https://w3id.org/OntoPFAS#isContainedInProduct
+Affected: https://w3id.org/OntoPFAS#environmentOfMobility https://w3id.org/OntoPFAS#environmentOfLocation
+Affected: https://w3id.org/OntoPFAS#mobility https://w3id.org/OntoPFAS#environmentOfActivity
+
+P28: Defining wrong symmetric relationships
+Affected: https://w3id.org/OntoPFAS#locationInPlace
+Affected: https://w3id.org/OntoPFAS#locationInEnvironment
+Affected: https://w3id.org/OntoPFAS#pfasMeasuredIn
+Affected: https://w3id.org/OntoPFAS#includesLocation
+Affected: https://w3id.org/OntoPFAS#homeLocationOf
+
+P29: Defining wrong transitive relationships
+Affected: https://w3id.org/OntoPFAS#locationInPlace
+Affected: https://w3id.org/OntoPFAS#measuredPfas
+Affected: https://w3id.org/OntoPFAS#mobilityOf
+Affected: https://w3id.org/OntoPFAS#mobility
+Affected: https://w3id.org/OntoPFAS#matrix
+
+P31: Defining wrong equivalent classes
+
+P34: Untyped class
+Affected: http://xmlns.com/foaf/0.1/Agent
+Affected: http://xmlns.com/foaf/0.1/Person
+Affected: http://xmlns.com/foaf/0.1/PersonalProfileDocument
+Affected: http://xmlns.com/foaf/0.1/Organization
+Affected: http://xmlns.com/foaf/0.1/
+

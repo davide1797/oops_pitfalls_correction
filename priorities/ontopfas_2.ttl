@@ -1,0 +1,578 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix ontopfas: <https://w3id.org/OntoPFAS#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.allotrope.org/ontologies/property#AFX_0001048> rdfs:label "contains" ;
+    owl:inverseOf <http://purl.allotrope.org/ontologies/property#AFX_0001049> ;
+    skos:definition "The relation between a container and its physical content. A material entity a contains a material entity b if b is located in some cavity of a." .
+
+obo:BFO_0000050 rdfs:label "part of" ;
+    owl:inverseOf obo:BFO_0000051 ;
+    skos:definition "A core relation that holds between a part and its whole." .
+
+obo:CHEBI_172406 rdfs:label "Polyfluoroalkyl" .
+
+obo:CHEBI_24531 rdfs:label "Perfluoroalkyl" .
+
+obo:CHEBI_83814 rdfs:label "Fluorotelomer" ;
+    skos:definition "Any organofluorine compound that is a oligomer or telomer synthesised by telomerization (a chain transfer reaction to produce an oligomer of a limited size). They are generally used in fire-fighting foams, leather protectants, food packaging and stain resistants." .
+
+obo:ExO_0000003 rdfs:label "Exposure outcome" .
+
+obo:ExO_0000043 rdfs:label "Anatomy" .
+
+obo:ExO_0000076 rdfs:label "Dose" .
+
+obo:ExO_0000077 rdfs:label "Biological response" .
+
+obo:ExO_0000079 rdfs:label "Disease" .
+
+obo:ExO_0000080 rdfs:label "Symptom" .
+
+obo:ExO_0000087 rdfs:label "Exposure intervention" .
+
+obo:ExO_0000101 rdfs:label "Phenotype" .
+
+obo:RO_0001015 rdfs:label "location of" ;
+    owl:inverseOf obo:RO_0001025 ;
+    skos:definition "A relation between two independent continuants, the target and the location, in which the target is entirely within the location." .
+
+obo:RO_0002020 rdfs:label "transports" ;
+    owl:inverseOf ontopfas:transportedBy ;
+    skos:definition "Holds between p and c when p is a transport process or transporter activity and the outcome of this p is to move c from one location to another." .
+
+obo:RO_0002170 rdfs:label "connected to" ;
+    skos:definition "A is connected to b if and only if a and b are discrete structure, and there exists some connecting structure c, such that c connects a and b." .
+
+obo:RO_0002219 rdfs:label "surrounded by" ;
+    owl:inverseOf obo:RO_0002221 ;
+    skos:definition "x surrounded_by y if and only if (1) x is adjacent to y and for every region r that is adjacent to x, r overlaps y (2) the shared boundary between x and y occupies the majority of the outermost boundary of x." .
+
+obo:RO_0002309 rdfs:label "has exposure stimulus" ;
+    owl:inverseOf ontopfas:exposureStimulusOf ;
+    skos:definition "A relationship between an exposure event or process and any agent, stimulus, activity, or event that causally effects an organism and interacts with an exposure receptor during an exposure event." .
+
+obo:RO_0002494 rdfs:label "transformation of" ;
+    owl:inverseOf <http://semanticscience.org/resource/SIO_000655> ;
+    skos:definition "x transformation of y if x is the immediate transformation of y, or is linked to y through a chain of transformation relationships" .
+
+obo:RO_0003000 rdfs:label "produces" ;
+    owl:inverseOf obo:RO_0003001 ;
+    skos:definition "a produces b if some process that occurs_in a has_output b, where a and b are material entities. Examples: hybridoma cell line produces monoclonal antibody reagent; chondroblast produces avascular GAG-rich matrix." .
+
+obo:RO_0003302 rdfs:label "causes" ;
+    owl:inverseOf obo:SCDO_1000202 ;
+    skos:definition "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity has some causal or contributing role that influences the condition." .
+
+dcterms:source rdfs:label "source" ;
+    rdfs:range dcat:Dataset ;
+    owl:inverseOf ontopfas:source_of ;
+    skos:definition "A related resource from which the described resource is derived." .
+
+<http://semanticscience.org/resource/SIO_000652> rdfs:label "is directly connected to" ;
+    skos:definition "A is directly connected to B iff there exists a path direclty between A and B." .
+
+prov:used rdfs:label "used" ;
+    owl:inverseOf ontopfas:usedBy ;
+    skos:definition "Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity." .
+
+sosa:hasSimpleResult rdfs:label "has simple result"@en ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range owl:real ;
+    skos:definition "The simple value of an Observation or Actuation."@en .
+
+sosa:resultTime rdfs:label "result time"@en ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en .
+
+schema:City rdfs:label "City" ;
+    skos:definition "A city or town." .
+
+schema:Continent rdfs:label "Continent" ;
+    skos:definition "One of the continents (for example, Europe or Africa)." .
+
+schema:address rdfs:label "address" ;
+    rdfs:domain schema:Place ;
+    rdfs:range xsd:string ;
+    skos:definition "Physical address of the item." .
+
+schema:birthDate rdfs:label "birth date" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "Date of birth." .
+
+schema:containsPlace rdfs:label "contains place" ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:Place ;
+    owl:inverseOf ontopfas:isContainedInPlace ;
+    skos:definition "The basic containment relation between a place and another that it contains." .
+
+schema:gender rdfs:label "gender" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    skos:definition "Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who are not a binary gender. The gender property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender SportsTeam can be indicated with a text value of \"Mixed\"." .
+
+schema:homeLocation rdfs:label "home location" ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:Place ;
+    owl:inverseOf ontopfas:homeLocationOf ;
+    skos:definition "A contact location for a person's residence." .
+
+schema:name rdfs:label "name" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    skos:definition "Name of the organization." .
+
+ontopfas:LongChainPfas rdfs:label "Long chain Pfas" ;
+    skos:definition "PFCA with more than 7 atoms of carbon or PFSA with more than 5 atoms of carbon." .
+
+ontopfas:NonPolymerPfas rdfs:label "Non polymer Pfas" ;
+    skos:definition "A non-polymer is a substance composed of small molecules that do not form long chains or networks. These molecules are typically of uniform composition and have a relatively simple and well-defined structure." .
+
+ontopfas:Pfaa rdfs:label "Pfaa" ;
+    skos:definition "Perfluoroalkyl acids (PFAAs) are a subclass of PFAS that have a fully fluorinated carbon chain (no hydrogen atoms attached to the carbon backbone) ending with a functional acid group — either a carboxylic acid (-COOH) or a sulfonic acid (-SO₃H) group." .
+
+ontopfas:PfasPrecursor rdfs:label "Precursor" ;
+    skos:definition "Precursor PFAS are compounds that can transform — through biological, chemical, or environmental processes — into perfluoroalkyl acids (PFAAs) such as PFOA or PFOS." .
+
+ontopfas:Pfca rdfs:label "Pfca" ;
+    skos:definition "PFCAs are PFAAs that end with a carboxylic acid functional group (-COOH). Their general formula is CₙF₂ₙ₊₁COOH, where n is typically between 4 and 14." .
+
+ontopfas:Pfoa rdfs:label "Pfoa" ;
+    skos:definition "PFOA is a specific PFCA with the formula C₇F₁₅COOH (eight carbon atoms)." .
+
+ontopfas:Pfos rdfs:label "Pfos" ;
+    skos:definition "PFOS is a specific PFSA with the formula C₈F₁₇SO₃H." .
+
+ontopfas:Pfsa rdfs:label "Pfsa" ;
+    skos:definition "PFSAs are PFAAs that end with a sulfonic acid functional group (-SO₃H). Their general formula is CₙF₂ₙ₊₁SO₃H." .
+
+ontopfas:PolymerPfas rdfs:label "Polymer Pfas" ;
+    skos:definition "A polymer is a substance composed of big molecules form long chains or networks." .
+
+ontopfas:ShortChainPfas rdfs:label "Short chain Pfas" ;
+    skos:definition "PFCA with fewer than 8 atoms of carbon or PFSA with fewer than 6 atoms of carbon." .
+
+ontopfas:UltraShortChainPfas rdfs:label "Ultra short chain Pfas" ;
+    skos:definition "PFAS chains with a maximum of 3 atoms of carbon." .
+
+ontopfas:VulnerablePerson rdfs:label "Vulnerable person" ;
+    skos:definition "Fragile people who can suffer more from the exposure to PFAS." .
+
+ontopfas:actiivtyInEnvironment rdfs:label "activity in environment" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range obo:ENVO_01000408 ;
+    owl:inverseOf ontopfas:environmentOfActivity ;
+    skos:definition "Relationship describing the environment surrounding an activity." .
+
+ontopfas:affectedBy rdfs:label "affected by" ;
+    rdfs:domain schema:Place ;
+    rdfs:range obo:ExO_0000022 ;
+    owl:inverseOf ontopfas:affects ;
+    skos:definition "Relation between a PFAS and people exposed to them." .
+
+ontopfas:alt rdfs:label "altitude" ;
+    rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+    rdfs:range owl:real ;
+    skos:definition "Altitude of a geographical point." .
+
+ontopfas:casId rdfs:label "cas id" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range xsd:string ;
+    skos:definition "CAS Registry Number of the chemical substance." .
+
+ontopfas:concernLevel rdfs:label "concern level" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range xsd:string ;
+    skos:definition "Level of concern associated with a substance (low, medium, high)." .
+
+ontopfas:containsMeasurement rdfs:label "contains measurement" ;
+    rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+    rdfs:range sosa:Observation ;
+    owl:inverseOf ontopfas:measuredIn ;
+    skos:definition "A relation between a location and a PFAS measurement." .
+
+ontopfas:environmentOfLocation rdfs:label "environment of location" ;
+    rdfs:domain obo:ENVO_01000408 ;
+    rdfs:range <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+    owl:inverseOf ontopfas:locationInEnvironment ;
+    skos:definition "Relation to indicate in which environment the location is present." .
+
+ontopfas:environmentOfMobility rdfs:label "environment of mobility" ;
+    rdfs:domain obo:ENVO_01000408 ;
+    rdfs:range ontopfas:PfasMobility ;
+    owl:inverseOf ontopfas:mobilityInEnvironment ;
+    skos:definition "Relation to express the level of mobility within a certain environment." .
+
+ontopfas:environmentSubjectTo rdfs:label "environment subject to" ;
+    rdfs:domain obo:ENVO_01000408 ;
+    rdfs:range <https://w3id.org/ocqa/regulation#Regulation> ;
+    owl:inverseOf ontopfas:validInEnvironment ;
+    skos:definition "Relation identifying the validity of a guideline in an environment." .
+
+ontopfas:functionalGroup rdfs:label "functional group" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range ontopfas:FunctionalGroup ;
+    owl:inverseOf ontopfas:functionalGroupOf ;
+    skos:definition "Property to express the functional group of a PFAS." .
+
+ontopfas:functionalGroupName rdfs:label "functional group name" ;
+    rdfs:domain ontopfas:FunctionalGroup ;
+    rdfs:range xsd:string ;
+    skos:definition "Name of the functional group." .
+
+ontopfas:handicap rdfs:label "handicap" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    skos:definition "Indication about the presence of an handicap." .
+
+ontopfas:includesLocation rdfs:label "includes location" ;
+    rdfs:domain schema:Place ;
+    rdfs:range <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+    owl:inverseOf ontopfas:locationInPlace ;
+    skos:definition "A relation indicating the geographical presence of a location within an area." .
+
+ontopfas:isEther rdfs:label "is ether" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Capability of a PFAS to move into the air." .
+
+ontopfas:isHydrophilic rdfs:label "is hydrophilic" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Capability of a PFAS to move into the water." .
+
+ontopfas:isomer rdfs:label "isomer" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range xsd:string ;
+    skos:definition "Isomer of a PFAS." .
+
+ontopfas:limit rdfs:label "limit" ;
+    rdfs:domain <https://w3id.org/ocqa/regulation#Regulation> ;
+    rdfs:range owl:real ;
+    skos:definition "Maximum amount of PFAS in an environment." .
+
+ontopfas:mapsLink rdfs:label "maps link" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:string ;
+    skos:definition "Google Maps link of an organisation." .
+
+ontopfas:matrix rdfs:label "matrix" ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range obo:ENVO_01000408 ;
+    owl:inverseOf ontopfas:matrixOf ;
+    skos:definition "Relation to indicate the PFAS matrix of an organization or measurement." .
+
+ontopfas:measuredPfas rdfs:label "measured PFAS" ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range ontopfas:Pfas ;
+    owl:inverseOf ontopfas:pfasMeasuredIn ;
+    skos:definition "Relation to indicate the detected PFAS." .
+
+ontopfas:mobility rdfs:label "mobility" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range ontopfas:PfasMobility ;
+    owl:inverseOf ontopfas:mobilityOf ;
+    skos:definition "Relation identifying the level of mobility of a PFAS." .
+
+ontopfas:mobilityDegree rdfs:label "mobility degree" ;
+    rdfs:domain ontopfas:PfasMobility ;
+    rdfs:range xsd:int ;
+    skos:definition "Degree of mobility." .
+
+ontopfas:numberOfCarbons rdfs:label "number of carbons" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range xsd:int ;
+    skos:definition "Number of atoms of carbons in the molecule." .
+
+ontopfas:ph rdfs:label "ph" ;
+    rdfs:domain obo:CHEBI_24431 ;
+    rdfs:range xsd:int ;
+    skos:definition "Ph level of a substance." .
+
+ontopfas:placeSubjectTo rdfs:label "place subject to" ;
+    rdfs:domain schema:Place ;
+    rdfs:range <https://w3id.org/ocqa/regulation#Regulation> ;
+    owl:inverseOf ontopfas:validInPlace ;
+    skos:definition "Relation identifying the validity of a guideline in a continent." .
+
+ontopfas:precision rdfs:label "precision" ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range xsd:string ;
+    skos:definition "Value indicating possible ranges like \"<\" or \">\"." .
+
+ontopfas:restrictedBy rdfs:label "restricted by" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range <https://w3id.org/ocqa/regulation#Regulation> ;
+    owl:inverseOf ontopfas:restricts .
+
+ontopfas:sector rdfs:label "sector" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:string ;
+    skos:definition "Sector of an organisation." .
+
+ontopfas:site rdfs:label "site" ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range xsd:string ;
+    skos:definition "Site associated with the location of an observation." .
+
+ontopfas:sourceText rdfs:label "source text" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:string ;
+    skos:definition "Source of the text of an organisation." .
+
+ontopfas:sourceType rdfs:label "source type" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:string ;
+    skos:definition "Source of the type of the organisation." .
+
+ontopfas:sourceUrl rdfs:label "source url" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:string ;
+    skos:definition "URL source of an organisation." .
+
+ontopfas:status rdfs:label "status" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:string ;
+    skos:definition "Current status of the organisation." .
+
+ontopfas:stimulatedBy rdfs:label "stimulated by" ;
+    rdfs:domain obo:ExO_0000022 ;
+    rdfs:range ontopfas:Pfas ;
+    owl:inverseOf ontopfas:stimulates ;
+    skos:definition "Relation indicating what is the exposed PFAS." .
+
+ontopfas:type rdfs:label "type" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:string ;
+    skos:definition "Type of an organisation." .
+
+ontopfas:unit rdfs:label "unit" ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range xsd:decimal ;
+    skos:definition "Scale of a value, e.g. 1000 for kilo or 0.001 for mili." .
+
+wgs:lat rdfs:label "latitude" ;
+    rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+    rdfs:range owl:real ;
+    skos:definition "Latitude of a geographical point." .
+
+wgs:long rdfs:label "longitude" ;
+    rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+    rdfs:range owl:real ;
+    skos:definition "Longitude of a geographical point." .
+
+<https://www.w3.org/TR/vocab-dcat-3/#Property:resource_title> rdfs:label "title" ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:range xsd:string ;
+    skos:definition "Technique for data collection." .
+
+<urn:absolute:ontopfas#Presumptive> rdfs:label "Presumptive" ;
+    skos:definition "Presumptive PFAS observation." .
+
+<http://purl.allotrope.org/ontologies/property#AFX_0001049> rdfs:label "contained in" ;
+    skos:definition "Inverse of contains." .
+
+obo:BFO_0000051 rdfs:label "has part" ;
+    skos:definition "A core relation that holds between a part and its whole." .
+
+obo:CHEBI_24431 rdfs:label "Chemical entity" .
+
+obo:PCO_0000031 rdfs:label "Organismal entity"@en .
+
+obo:RO_0001025 rdfs:label "located in" ;
+    skos:definition "A relation between two independent continuants, the target and the location, in which the target is entirely within the location." .
+
+obo:RO_0002221 rdfs:label "surrounds" ;
+    skos:definition "inverse of surrounded by." .
+
+obo:RO_0003001 rdfs:label "produced by" ;
+    skos:definition "a produced_by b iff some process that occurs_in b has_output a." .
+
+obo:SCDO_1000202 rdfs:label "caused by" ;
+    skos:definition "A relationship between a condition (a phenotype or disease) and an entity (e.g. environment) or condition (phenotype or disease) which could be an existing condition or an event, where the entity or second condition has a causal role for the condition being described." .
+
+<http://semanticscience.org/resource/SIO_000655> rdfs:label "transforms into" ;
+    skos:definition "A transitive temporal relation in which an entity mainstains identity from one state to another." .
+
+schema:Product rdfs:label "Product" ;
+    skos:definition "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online."@en .
+
+ontopfas:affects rdfs:label "affects" ;
+    rdfs:domain obo:ExO_0000022 ;
+    rdfs:range schema:Place ;
+    skos:definition "Relation between a PFAS and people exposed to them." .
+
+ontopfas:environmentOfActivity rdfs:label "environment of activity" ;
+    rdfs:domain obo:ENVO_01000408 ;
+    rdfs:range schema:Organization ;
+    skos:definition "Relationship describing the environment surrounding an activity." .
+
+ontopfas:exposureStimulusOf rdfs:label "exposure stimulus of" ;
+    rdfs:domain obo:ExO_0000022 ;
+    rdfs:range schema:Person ;
+    skos:definition "A relationship between an exposure event or process and any agent, stimulus, activity, or event that causally effects an organism and interacts with an exposure receptor during an exposure event." .
+
+ontopfas:functionalGroupOf rdfs:label "functional group of" ;
+    rdfs:domain ontopfas:FunctionalGroup ;
+    rdfs:range ontopfas:Pfas ;
+    skos:definition "Property to express the functional group of a PFAS." .
+
+ontopfas:homeLocationOf rdfs:label "home location of" ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:Person ;
+    skos:definition "A contact location for a person's residence." .
+
+ontopfas:isContainedInPlace rdfs:label "is contained in place" ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:Place ;
+    skos:definition "Inverse of contains place." .
+
+ontopfas:locationInEnvironment rdfs:label "location in environment" ;
+    rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+    rdfs:range obo:ENVO_01000408 ;
+    skos:definition "Relation to indicate in which environment the location is present." .
+
+ontopfas:locationInPlace rdfs:label "location in place" ;
+    rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+    rdfs:range schema:Place ;
+    skos:definition "Inverse of contains location." .
+
+ontopfas:matrixOf rdfs:label "matrix of" ;
+    rdfs:domain obo:ENVO_01000408 ;
+    rdfs:range sosa:Observation ;
+    skos:definition "Relation to indicate the PFAS matrix of an organization or measurement." .
+
+ontopfas:measuredIn rdfs:label "measured in" ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+    skos:definition "A relation between a container and measurement datum that specifies the actual amount of material in the container." .
+
+ontopfas:mobilityInEnvironment rdfs:label "mobility in environment" ;
+    rdfs:domain ontopfas:PfasMobility ;
+    rdfs:range obo:ENVO_01000408 ;
+    skos:definition "Relation to express the level of mobility within a certain environment." .
+
+ontopfas:mobilityOf rdfs:label "mobility of" ;
+    rdfs:domain ontopfas:PfasMobility ;
+    rdfs:range ontopfas:Pfas ;
+    skos:definition "Relation identifying the level of mobility of a PFAS." .
+
+ontopfas:pfasMeasuredIn rdfs:label "pfas measured in" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range sosa:Observation ;
+    skos:definition "Relation to indicate the detected PFAS." .
+
+ontopfas:restricts rdfs:label "restricts" ;
+    rdfs:domain <https://w3id.org/ocqa/regulation#Regulation> ;
+    rdfs:range ontopfas:Pfas ;
+    skos:definition "Relation identifying the restriction of a guideline to a PFAS." .
+
+ontopfas:source_of rdfs:label "source of" ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:range [ ] ;
+    skos:definition "Inverse of source." .
+
+ontopfas:stimulates rdfs:label "stimulates" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range obo:ExO_0000022 ;
+    skos:definition "Relation indicating what is the exposed PFAS." .
+
+ontopfas:transportedBy rdfs:label "transported by" ;
+    rdfs:domain ontopfas:Pfas ;
+    rdfs:range obo:PCO_0000031 ;
+    skos:definition "Holds between p and c when p is a transport process or transporter activity and the outcome of this p is to move c from one location to another." .
+
+ontopfas:usedBy rdfs:label "used by" ;
+    rdfs:domain schema:Product ;
+    rdfs:range schema:Organization ;
+    skos:definition "Inverse of used." .
+
+ontopfas:validInEnvironment rdfs:label "valid in environment" ;
+    rdfs:domain <https://w3id.org/ocqa/regulation#Regulation> ;
+    rdfs:range obo:ENVO_01000408 ;
+    skos:definition "Relation identifying the validity of a guideline in an environment." .
+
+ontopfas:validInPlace rdfs:label "valid in place" ;
+    rdfs:domain <https://w3id.org/ocqa/regulation#Regulation> ;
+    rdfs:range schema:Place .
+
+dcat:Dataset rdfs:label "قائمة بيانات"@ar,
+        "Datová sada"@cs,
+        "Datasæt"@da,
+        "Σύνολο Δεδομένων"@el,
+        "Dataset"@en,
+        "Conjunto de datos"@es,
+        "Jeu de données"@fr,
+        "Dataset"@it,
+        "データセット"@ja ;
+    skos:definition """
+قائمة بيانات منشورة أو مجموعة من قبل مصدر ما و متاح الوصول إليها أو تحميلها
+"""@ar,
+        """
+Kolekce dat poskytovaná či řízená jedním zdrojem, která je k dispozici pro přístup či stažení v jednom či více formátech.
+"""@cs,
+        """
+En samling a data, udgivet eller udvalgt og arrangeret af en enkelt kilde og som der er adgang til i en eller flere repræsentationer.
+"""@da,
+        """
+Μία συλλογή από δεδομένα, δημοσιευμένη ή επιμελημένη από μία και μόνο πηγή, διαθέσιμη δε προς πρόσβαση ή μεταφόρτωση σε μία ή περισσότερες μορφές.
+"""@el,
+        """
+A collection of data, published or curated by a single source, and available for access or download in one or more representations.
+"""@en,
+        """
+Una colección de datos, publicados o conservados por una única fuente, y disponibles para ser accedidos o descargados en uno o más formatos.
+"""@es,
+        """
+Une collection de données, publiée ou élaborée par une seule source, et disponible pour accès ou téléchargement dans un ou plusieurs formats.
+"""@fr,
+        """
+Raccolta di dati, pubblicati o curati da un'unica fonte, disponibili per l'accesso o il download in uno o più formati.
+"""@it,
+        """
+1つのエージェントによって公開またはキュレートされ、1つ以上の形式でアクセスまたはダウンロードできるデータの集合。
+"""@ja .
+
+ontopfas:FunctionalGroup rdfs:label "Functional group" ;
+    skos:definition "Functional group of the PFAS, responsible for the reactive part." .
+
+obo:ExO_0000022 rdfs:label "Exposure stimulus" .
+
+ontopfas:PfasMobility rdfs:label "Pfas mobility" ;
+    skos:definition "Degree of mobility associated with the PFAS." .
+
+schema:Person rdfs:label "Person" ;
+    skos:definition "A person (alive, dead, undead, or fictional)." .
+
+<https://w3id.org/ocqa/regulation#Regulation> rdfs:label "Regulation" ;
+    skos:definition "Regulation about the presence of the PFAS in the environments." .
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> rdfs:label "Location" ;
+    skos:definition "Anything with spatial extent, i.e. size, shape, or position. e.g. people, places, bowling balls, as well as abstract areas like cubes." .
+
+obo:ENVO_01000408 rdfs:label "Environmental zone" ;
+    skos:definition "A site which has its extent determined by the presence or influence of one or more components of an environmental system or the processes occurring therein." .
+
+schema:Organization rdfs:label "Activity" ;
+    skos:definition "An organization such as a school, NGO, corporation, club, etc."@en .
+
+sosa:Observation rdfs:label "Observation"@en ;
+    skos:definition "Activity of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with."@en .
+
+schema:Place rdfs:label "Place" ;
+    skos:definition "Physical place (city, region, country, continent)." .
+
+ontopfas:Pfas rdfs:label "Pfas" ;
+    skos:definition "Per- and poly- fluoroalkyl substance." .
+

@@ -1,0 +1,168 @@
+=== OOPS PITFALLS ANALYSIS ===
+Here are the axioms to address the **OOPS pitfalls** without introducing new ontological problems:
+
+---
+
+### **1 - Creating unconnected ontology elements**
+**Pitfall:** `irao:Software` is isolated.
+**Axiom:**
+```turtle
+irao:Software rdfs:subClassOf <https://w3id.org/Green-AI-Ontology/ontology/SoftwareSettings> .
+```
+
+---
+
+### **2 - Missing annotations**
+**Pitfalls:**
+- **`vivo:Project`** (untyped class)
+- **`foaf:Person`** (untyped class)
+
+**Axioms:**
+```turtle
+vivo:Project rdfs:label "Project"@en ;
+            rdfs:comment "A structured effort or endeavor aimed at achieving specific research or development goals."@en .
+
+foaf:Person rdfs:label "Person"@en ;
+           rdfs:comment "A human individual (as opposed to an organization or fictional entity)."@en .
+```
+
+---
+
+### **4 - Inverse relationships not explicitly declared**
+**Pitfalls:**
+- **`irao:hasAuthor`** (no inverse)
+- **`irao:hasPublication`** (no inverse)
+- **`<https://w3id.org/Green-AI-Ontology/ontology/creates>`** (no inverse)
+- **`<https://w3id.org/Green-AI-Ontology/ontology/hasResearchProject>`** (no inverse)
+
+**Axioms (if applicable and not conflicting with existing semantics):**
+```turtle
+irao:hasAuthor owl:inverseOf <https://w3id.org/Green-AI-Ontology/ontology/authoredBy> .
+<https://w3id.org/Green-AI-Ontology/ontology/creates> owl:inverseOf <https://w3id.org/Green-AI-Ontology/ontology/createdBy> .
+<https://w3id.org/Green-AI-Ontology/ontology/hasResearchProject> owl:inverseOf <https://w3id.org/Green-AI-Ontology/ontology/isPartOfResearchProject> .
+```
+*Note:* Inverse properties for `hasPublication` and `trainedOn` are not added to avoid circularity (e.g., `Publication` → `AIModel` → `Publication`).
+---
+
+### **5 - Untyped class**
+**Pitfalls:**
+- **`vivo:Project`** (already addressed in **2**)
+- **`foaf:Person`** (already addressed in **2**)
+
+**No new axioms needed** (since the pitfall is resolved by adding annotations in **2**).
+
+---
+*No disjointness axioms (3) are added as they would require domain/range analysis, which is not feasible without additional context.*
+
+=== PITFALLS DISCOVERY ===
+Here are key **ontological pitfalls** and **resolutive axioms** for the Green-AI Ontology:
+
+---
+
+### 1. **Inconsistent Property Domains**
+   - **Pitfall**: Some properties (e.g., `hasIdentifier`, `hasName`, `hasURL`) lack explicit domain classes, while others (e.g., `hasCPU`, `hasEnergyMetrics`) are tied to specific classes. This may lead to ambiguity or misuse.
+   - **Solution**: Define domains for all properties using `rdfs:domain`.
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/hasIdentifier> rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> .
+     <https://w3id.org/Green-AI-Ontology/ontology/hasName> rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> .
+     <https://w3id.org/Green-AI-Ontology/ontology/hasURL> rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> .
+     ```
+
+---
+
+### 2. **Duplicate Property Labels**
+   - **Pitfall**: `hasEnergyMetrics` and `hasEnergyMetricsAllExperiments` share the same label, risking confusion.
+   - **Solution**: Distinguish labels (e.g., "per experiment" vs. "all experiments").
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/hasEnergyMetricsAllExperiments> rdfs:label "has energy metrics (all experiments)"@en .
+     ```
+
+---
+
+### 3. **Inheritance Ambiguity**
+   - **Pitfall**: `EnergyMeasurementService` and `EnergyMeasurementServiceAllExperiments` are subclasses of `EnergyMeasure`, but `EnergyMeasure` is a *datatype* (not an `owl:Class`). This creates a logical inconsistency.
+   - **Solution**: Replace `EnergyMeasure` as a superclass with a more appropriate class (e.g., `EnergyMeasurement`).
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementService> rdfs:subClassOf <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurement> .
+     <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementServiceAllExperiments> rdfs:subClassOf <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurement> .
+     ```
+
+---
+
+### 4. **Missing Disjointness**
+   - **Pitfall**: `CPU` and `GPU` are distinct but not explicitly declared as disjoint (e.g., a hardware setting cannot simultaneously have a CPU and GPU).
+   - **Solution**: Define disjointness axioms.
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/CPU> owl:disjointWith <https://w3id.org/Green-AI-Ontology/ontology/GPU> .
+     ```
+
+---
+
+### 5. **Redundant Datatype Properties**
+   - **Pitfall**: `hasEnergyConsumption` and `haskWh` (note typo in prefix) seem redundant for energy metrics. Similarly, `hasFPO` and `hasWatt`/`hasJoul` may overlap.
+   - **Solution**: Align or merge properties (e.g., `hasEnergyConsumption` could be a superproperty of `haskWh`/`hasJoul`).
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/hasEnergyConsumption> rdfs:subPropertyOf <https://w3id.org/Green-AI-Ontology/ontology/haskWh> .
+     <https://w3id.org/Green-AI-Ontology/ontology/hasWatt> rdfs:subPropertyOf <https://w3id.org/Green-AI-Ontology/ontology/hasEnergyConsumption> .
+     ```
+
+---
+
+### 6. **Missing Functional Properties**
+   - **Pitfall**: Properties like `hasCPUCount` or `hasGPUCount` may allow multiple values (e.g., an AI model could have multiple conflicting CPU counts).
+   - **Solution**: Declare them as `owl:FunctionalProperty`.
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/hasCPUCount> a owl:FunctionalProperty .
+     <https://w3id.org/Green-AI-Ontology/ontology/hasGPUCount> a owl:FunctionalProperty .
+     ```
+
+---
+
+### 7. **Typo in Property Name**
+   - **Pitfall**: `allExperminentsRunTime` has a typo ("Experminents" instead of "Experiments").
+   - **Solution**: Correct the property name.
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/allExperimentsRunTime> rdfs:label "all experiments run time"@en .
+     ```
+
+---
+
+### 8. **Unclear Relationships**
+   - **Pitfall**: `HardwareSettings` and `SoftwareSettings` lack explicit constraints (e.g., a GPU must belong to hardware settings).
+   - **Solution**: Add domain/range restrictions or `owl:hasKey` axioms.
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/hasGPU> rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> .
+     <https://w3id.org/Green-AI-Ontology/ontology/hasGPU> rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/GPU> .
+     ```
+
+---
+
+### 9. **Missing Inverse Properties**
+   - **Pitfall**: `creates` (AIModel → InformaticsResearchArtifact) lacks an inverse, making bidirectional reasoning difficult.
+   - **Solution**: Define inverse properties.
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/creates> owl:inverseOf <https://w3id.org/Green-AI-Ontology/ontology/createdBy> .
+     ```
+
+---
+
+### 10. **EnergyMeasure vs. EnergyMeasurementService Confusion**
+   - **Pitfall**: `EnergyMeasure` is a class but also used as a range for `usedEnergyMeasurementService`, suggesting a mix of *measurement* and *service*.
+   - **Solution**: Clarify hierarchy (e.g., `EnergyMeasurementService` *provides* `EnergyMeasure`).
+   - **Axiom**:
+     ```turtle
+     <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementService> owl:onProperty <https://w3id.org/Green-AI-Ontology/ontology/providesEnergyMeasure> ;
+       owl:someValuesFrom <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> .
+     ```
+
+---
+**Summary**: Fix domain/range inconsistencies, disjointness, functional properties, typos, and clarify class hierarchies (e.g., `EnergyMeasure` vs. `EnergyMeasurementService`). Use `rdfs:subPropertyOf` and `owl:inverseOf` to resolve redundancies and improve reasoning.

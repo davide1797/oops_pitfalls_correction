@@ -1,0 +1,581 @@
+@prefix : <https://w3id.org/Green-AI-Ontology/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix irao: <http://ontology.ethereal.cz/irao/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+@base <https://w3id.org/Green-AI-Ontology/ontology#> .
+
+<https://w3id.org/Green-AI-Ontology/ontology#> rdf:type owl:Ontology ;
+                                                rdfs:comment "The Green AI Ontology for the Energy Measurement of AI Models, described using W3C RDF Schema and the Web Ontology Language OWL."@en ;
+                                                rdfs:label "Green AI Ontology"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ontology.ethereal.cz/irao/hasAuthor
+irao:hasAuthor rdf:type owl:ObjectProperty ;
+               rdfs:domain irao:InformaticsResearchArtifact ;
+               rdfs:range irao:Researcher ;
+               rdfs:comment "This property specifies the author of a research artifact"@en ;
+               rdfs:label "has author"@en .
+
+
+###  http://ontology.ethereal.cz/irao/hasPublication
+irao:hasPublication rdf:type owl:ObjectProperty ;
+                    rdfs:domain [ rdf:type owl:Class ;
+                                  owl:unionOf ( irao:InformaticsResearchArtifact
+                                                <https://w3id.org/Green-AI-Ontology/ontology/AIModel>
+                                              )
+                                ] ;
+                    rdfs:range irao:Publication ;
+                    rdfs:comment "This property specifies the publication of a research artifact or AI model"@en ;
+                    rdfs:label "has publication"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/creates
+<https://w3id.org/Green-AI-Ontology/ontology/creates> rdf:type owl:ObjectProperty ;
+                                                      rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                      rdfs:range irao:InformaticsResearchArtifact ;
+                                                      rdfs:comment "This property specifies a informatics research artifact that is created by an AI model"@en ;
+                                                      rdfs:label "creates"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasCPU
+<https://w3id.org/Green-AI-Ontology/ontology/hasCPU> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/CPUCount>
+                                                                                 <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings>
+                                                                               )
+                                                                 ] ;
+                                                     rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/CPU> ;
+                                                     rdfs:comment "This property specifies a Processing Unit (CPU)"@en ;
+                                                     rdfs:label "has cpu"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasCPUCount
+<https://w3id.org/Green-AI-Ontology/ontology/hasCPUCount> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> ;
+                                                          rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/CPUCount> ;
+                                                          rdfs:comment "This property specifies how often a particular CPU is used"@en ;
+                                                          rdfs:label "has cpu count"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasEnergyMetrics
+<https://w3id.org/Green-AI-Ontology/ontology/hasEnergyMetrics> rdf:type owl:ObjectProperty ;
+                                                               rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                               rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                               rdfs:comment "This property specifies the Energy Metrics for the final AI model"@en ;
+                                                               rdfs:label "has energy metrics"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasEnergyMetricsAllExperiments
+<https://w3id.org/Green-AI-Ontology/ontology/hasEnergyMetricsAllExperiments> rdf:type owl:ObjectProperty ;
+                                                                             rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                                             rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasureAllExperiments> ;
+                                                                             rdfs:comment "This property specifies the Energy Metrics for the AI model including all Experiments and trainings"@en ;
+                                                                             rdfs:label "has energy metrics"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasGPU
+<https://w3id.org/Green-AI-Ontology/ontology/hasGPU> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/GPUCount>
+                                                                                 <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings>
+                                                                               )
+                                                                 ] ;
+                                                     rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/GPU> ;
+                                                     rdfs:comment "This property specifies a Graphics Processing Unit (GPU)"@en ;
+                                                     rdfs:label "has gpu"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasGPUCount
+<https://w3id.org/Green-AI-Ontology/ontology/hasGPUCount> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> ;
+                                                          rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/GPUCount> ;
+                                                          rdfs:comment "This property specifies how often a particular GPU is used"@en ;
+                                                          rdfs:label "has gpu count"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasHardwareSettings
+<https://w3id.org/Green-AI-Ontology/ontology/hasHardwareSettings> rdf:type owl:ObjectProperty ;
+                                                                  rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                                  rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> ;
+                                                                  rdfs:comment "This property specifies the Hardware Settings used to train an AI model"@en ;
+                                                                  rdfs:label "has hardware settings"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasLocation
+<https://w3id.org/Green-AI-Ontology/ontology/hasLocation> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain [ rdf:type owl:Class ;
+                                                                        owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings>
+                                                                                      <https://w3id.org/Green-AI-Ontology/ontology/Provider>
+                                                                                    )
+                                                                      ] ;
+                                                          rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/Location> ;
+                                                          rdfs:comment "This property specifies a Location where the hardware is located"@en ;
+                                                          rdfs:label "has location"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasModule
+<https://w3id.org/Green-AI-Ontology/ontology/hasModule> rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/SoftwareSettings> ;
+                                                        rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/Module> ;
+                                                        rdfs:comment "This property specifies a Software Module or Package that is used by an AI model"@en ;
+                                                        rdfs:label "has module"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasProvider
+<https://w3id.org/Green-AI-Ontology/ontology/hasProvider> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> ;
+                                                          rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/Provider> ;
+                                                          rdfs:comment "This property specifies a Provider (especially a cloud service provider)"@en ;
+                                                          rdfs:label "has provider"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasResearchProject
+<https://w3id.org/Green-AI-Ontology/ontology/hasResearchProject> rdf:type owl:ObjectProperty ;
+                                                                 rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                                 rdfs:range irao:ResearchProject ;
+                                                                 rdfs:comment "This property specifies a research project to which the AI model is related"@en ;
+                                                                 rdfs:label "has research project"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasSoftwareSettings
+<https://w3id.org/Green-AI-Ontology/ontology/hasSoftwareSettings> rdf:type owl:ObjectProperty ;
+                                                                  rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                                  rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/SoftwareSettings> ;
+                                                                  rdfs:comment "This property specifies the Software Settings used to train an AI model"@en ;
+                                                                  rdfs:label "has software settings"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/trainedOn
+<https://w3id.org/Green-AI-Ontology/ontology/trainedOn> rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                        rdfs:range irao:Dataset ;
+                                                        rdfs:comment "This property specifies a dataset which was used to train the AI model"@en ;
+                                                        rdfs:label "trained on"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/usedEnergyMeasurementService
+<https://w3id.org/Green-AI-Ontology/ontology/usedEnergyMeasurementService> rdf:type owl:ObjectProperty ;
+                                                                           rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                                           rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementService> ;
+                                                                           rdfs:comment "This property specifies a Energy Measurement Service used to calculate a Energy Metric for the final AI model"@en ;
+                                                                           rdfs:label "used energy measurement service"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/usedEnergyMeasurementServiceAllExperiments
+<https://w3id.org/Green-AI-Ontology/ontology/usedEnergyMeasurementServiceAllExperiments> rdf:type owl:ObjectProperty ;
+                                                                                         rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                                                         rdfs:range <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementServiceAllExperiments> ;
+                                                                                         rdfs:comment "This property specifies a Energy Measurement Service used to calculate a Energy Metric for the AI model including all Experiments and trainings"@en ;
+                                                                                         rdfs:label "used energy measurement service"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/Green-AI-Ontology/ontology/allExperminentsRunTime
+<https://w3id.org/Green-AI-Ontology/ontology/allExperminentsRunTime> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                                     rdfs:range xsd:float ;
+                                                                     rdfs:comment "This property specifies the run time it took to train the final AI model"@en ;
+                                                                     rdfs:label "all experminents run time"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/count
+<https://w3id.org/Green-AI-Ontology/ontology/count> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:domain [ rdf:type owl:Class ;
+                                                                  owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/CPUCount>
+                                                                                <https://w3id.org/Green-AI-Ontology/ontology/GPUCount>
+                                                                              )
+                                                                ] ;
+                                                    rdfs:range xsd:integer ;
+                                                    rdfs:comment "This property specifies how often a particular GPU or CPU is used"@en ;
+                                                    rdfs:label "count"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasCores
+<https://w3id.org/Green-AI-Ontology/ontology/hasCores> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/CPU> ;
+                                                       rdfs:range xsd:integer ;
+                                                       rdfs:comment "This property specifies the number of cores (processing units)"@en ;
+                                                       rdfs:label "has cores"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasEnergyConsumption
+<https://w3id.org/Green-AI-Ontology/ontology/hasEnergyConsumption> rdf:type owl:DatatypeProperty ;
+                                                                   rdfs:domain [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/CPU>
+                                                                                               <https://w3id.org/Green-AI-Ontology/ontology/GPU>
+                                                                                             )
+                                                                               ] ;
+                                                                   rdfs:range xsd:float ;
+                                                                   rdfs:comment "This property specifies the CPU- or GPUs energy consumption in Watt"@en ;
+                                                                   rdfs:label "has energy consumption"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasEnergyMixEmissionFactor
+<https://w3id.org/Green-AI-Ontology/ontology/hasEnergyMixEmissionFactor> rdf:type owl:DatatypeProperty ;
+                                                                         rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/Location> ;
+                                                                         rdfs:range xsd:float ;
+                                                                         rdfs:comment "This property specifies the CO2 emission factor for the energy mix at a specific location in Grams Co2 per kWh"@en ;
+                                                                         rdfs:label "has energy mix emission factor"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasFLOPSperWatt
+<https://w3id.org/Green-AI-Ontology/ontology/hasFLOPSperWatt> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> ;
+                                                              rdfs:range xsd:integer ;
+                                                              rdfs:comment "This property specifies the floating point operations per watt (FLOPS per watt)"@en ;
+                                                              rdfs:label "has flops per watt"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasFPO
+<https://w3id.org/Green-AI-Ontology/ontology/hasFPO> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                     rdfs:range xsd:integer ;
+                                                     rdfs:comment "This property specifies the total number of floating point operations (FPO) that an AI model needed"@en ;
+                                                     rdfs:label "has fpo"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasFinalRunTime
+<https://w3id.org/Green-AI-Ontology/ontology/hasFinalRunTime> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                              rdfs:range xsd:float ;
+                                                              rdfs:comment "This property specifies the run time it took to train the AI model including all Experiments and trainings"@en ;
+                                                              rdfs:label "has final run time"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasFrequency
+<https://w3id.org/Green-AI-Ontology/ontology/hasFrequency> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/CPU> ;
+                                                           rdfs:range xsd:integer ;
+                                                           rdfs:comment "This property specifies the frequency in Hertz (Hz)"@en ;
+                                                           rdfs:label "has frequency"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasHardwareType
+<https://w3id.org/Green-AI-Ontology/ontology/hasHardwareType> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> ;
+                                                              rdfs:range xsd:string ;
+                                                              rdfs:comment "This property specifies the hardware type (e.g. a server or a desktop computer)"@en ;
+                                                              rdfs:label "has hardware type"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasIdentifier
+<https://w3id.org/Green-AI-Ontology/ontology/hasIdentifier> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain [ rdf:type owl:Class ;
+                                                                          owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/CPU>
+                                                                                        <https://w3id.org/Green-AI-Ontology/ontology/GPU>
+                                                                                      )
+                                                                        ] ;
+                                                            rdfs:range xsd:string ;
+                                                            rdfs:comment "This property specifies a unique identifier of a CPU or a GPU"@en ;
+                                                            rdfs:label "has identifier"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasJoul
+<https://w3id.org/Green-AI-Ontology/ontology/hasJoul> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                      rdfs:range xsd:float ;
+                                                      rdfs:comment "This property specifies the amount of energy needed in Joul (J) to train an AI model"@en ;
+                                                      rdfs:label "has joul"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasKgOfCO2eq
+<https://w3id.org/Green-AI-Ontology/ontology/hasKgOfCO2eq> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                           rdfs:range xsd:float ;
+                                                           rdfs:comment "This property specifies the amount of CO2eq in Kilogram (kg) that an AI model contributed to the atmosphere"@en ;
+                                                           rdfs:label "has kg of co2eq"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasMemory
+<https://w3id.org/Green-AI-Ontology/ontology/hasMemory> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> ;
+                                                        rdfs:range xsd:integer ;
+                                                        rdfs:comment "This property specifies the size of the memory (RAM) in Megabyte (MB)"@en ;
+                                                        rdfs:label "has memory"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasModelSize
+<https://w3id.org/Green-AI-Ontology/ontology/hasModelSize> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                           rdfs:range xsd:integer ;
+                                                           rdfs:comment "This property specifies the AI models size in Megabyte (MB)"@en ;
+                                                           rdfs:label "has model size"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasName
+<https://w3id.org/Green-AI-Ontology/ontology/hasName> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain [ rdf:type owl:Class ;
+                                                                    owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementService>
+                                                                                  <https://w3id.org/Green-AI-Ontology/ontology/Location>
+                                                                                  <https://w3id.org/Green-AI-Ontology/ontology/Module>
+                                                                                )
+                                                                  ] ;
+                                                      rdfs:range xsd:string ;
+                                                      rdfs:comment "This property specifies the name of a energy measurement service, location or a module"@en ;
+                                                      rdfs:label "has name"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasOS
+<https://w3id.org/Green-AI-Ontology/ontology/hasOS> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> ;
+                                                    rdfs:range xsd:string ;
+                                                    rdfs:comment "This property specifies the operating system (OS)"@en ;
+                                                    rdfs:label "has os"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasPackagePowerDraw
+<https://w3id.org/Green-AI-Ontology/ontology/hasPackagePowerDraw> rdf:type owl:DatatypeProperty ;
+                                                                  rdfs:domain [ rdf:type owl:Class ;
+                                                                                owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/CPU>
+                                                                                              <https://w3id.org/Green-AI-Ontology/ontology/GPU>
+                                                                                            )
+                                                                              ] ;
+                                                                  rdfs:range xsd:string ;
+                                                                  rdfs:comment "This property specifies the CPU- or GPU-package power draw"@en ;
+                                                                  rdfs:label "has package power draw"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasParameters
+<https://w3id.org/Green-AI-Ontology/ontology/hasParameters> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/AIModel> ;
+                                                            rdfs:range xsd:integer ;
+                                                            rdfs:comment "This property specifies the number of parameters defined by an AI model"@en ;
+                                                            rdfs:label "has parameters"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasProgrammingLanguage
+<https://w3id.org/Green-AI-Ontology/ontology/hasProgrammingLanguage> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/SoftwareSettings> ;
+                                                                     rdfs:range xsd:string ;
+                                                                     rdfs:comment "This property specifies a programming language"@en ;
+                                                                     rdfs:label "has programming language"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasSocialCost
+<https://w3id.org/Green-AI-Ontology/ontology/hasSocialCost> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                            rdfs:range xsd:integer ;
+                                                            rdfs:comment "This property specifies the social cost of carbon in US$ that an AI model have"@en ;
+                                                            rdfs:label "has social cost"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasStorage
+<https://w3id.org/Green-AI-Ontology/ontology/hasStorage> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> ;
+                                                         rdfs:range xsd:integer ;
+                                                         rdfs:comment "This property specifies the size of the hard disk storage in Megabyte (MB)"@en ;
+                                                         rdfs:label "has storage"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasTeraFLOPS
+<https://w3id.org/Green-AI-Ontology/ontology/hasTeraFLOPS> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/GPU> ;
+                                                           rdfs:range xsd:integer ;
+                                                           rdfs:comment "This property specifies the tera floating point operations per second"@en ;
+                                                           rdfs:label "has flops"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasURL
+<https://w3id.org/Green-AI-Ontology/ontology/hasURL> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementService>
+                                                                                 <https://w3id.org/Green-AI-Ontology/ontology/Module>
+                                                                               )
+                                                                 ] ;
+                                                     rdfs:range xsd:anyURI ;
+                                                     rdfs:comment "This property specifies the resource URL of a energy measurement service or a module"@en ;
+                                                     rdfs:label "has url"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasVersion
+<https://w3id.org/Green-AI-Ontology/ontology/hasVersion> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:domain [ rdf:type owl:Class ;
+                                                                       owl:unionOf ( <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementService>
+                                                                                     <https://w3id.org/Green-AI-Ontology/ontology/Module>
+                                                                                   )
+                                                                     ] ;
+                                                         rdfs:range xsd:string ;
+                                                         rdfs:comment "This property specifies the version of a energy measurement service or a module"@en ;
+                                                         rdfs:label "has version"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/hasWatt
+<https://w3id.org/Green-AI-Ontology/ontology/hasWatt> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                      rdfs:range xsd:float ;
+                                                      rdfs:comment "This property specifies the amount of energy needed in Watt (W) to train an AI model"@en ;
+                                                      rdfs:label "has watt"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/haskWh
+<https://w3id.org/Green-AI-Ontology/ontology/haskWh> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                     rdfs:range xsd:float ;
+                                                     rdfs:comment "This property specifies the amount of energy needed in Kilowatt-hours (kWh) to train an AI model"@en ;
+                                                     rdfs:label "has kwh"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/utilization
+<https://w3id.org/Green-AI-Ontology/ontology/utilization> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:domain <https://w3id.org/Green-AI-Ontology/ontology/GPUCount> ;
+                                                          rdfs:range xsd:string ;
+                                                          rdfs:comment "This property specifies how many percent of the GPU were used"@en ;
+                                                          rdfs:label "utilization"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontology.ethereal.cz/irao/Dataset
+irao:Dataset rdf:type owl:Class ;
+             rdfs:subClassOf irao:InformaticsResearchArtifact ;
+             rdfs:comment "A dataset containing the gathered or generated data about some topic"@en ;
+             rdfs:isDefinedBy <http://ontology.ethereal.cz/irao> ;
+             rdfs:label "Dataset"@en .
+
+
+###  http://ontology.ethereal.cz/irao/InformaticsResearchArtifact
+irao:InformaticsResearchArtifact rdf:type owl:Class ;
+                                 rdfs:comment "An informatics research artifact is a research artifact in the informatics field"@en ;
+                                 rdfs:isDefinedBy <http://ontology.ethereal.cz/irao> ;
+                                 rdfs:label "Informatics Research Artifact"@en .
+
+
+###  http://ontology.ethereal.cz/irao/Publication
+irao:Publication rdf:type owl:Class ;
+                 rdfs:comment "A publication makes content and research results available to the general public via publication venues such as journals, books, websites, etc."@en ;
+                 rdfs:isDefinedBy <http://ontology.ethereal.cz/irao> ;
+                 rdfs:label "Publication"@en .
+
+
+###  http://ontology.ethereal.cz/irao/ResearchProject
+irao:ResearchProject rdf:type owl:Class ;
+                     rdfs:subClassOf vivo:Project ;
+                     rdfs:comment "A research project is a project within the research domain with the endeavor of achieving scientific results"@en ;
+                     rdfs:isDefinedBy <http://ontology.ethereal.cz/irao> ;
+                     rdfs:label "Research Project"@en .
+
+
+###  http://ontology.ethereal.cz/irao/Researcher
+irao:Researcher rdf:type owl:Class ;
+                rdfs:subClassOf foaf:Person ;
+                rdfs:comment "A researcher is a person doing research"@en ;
+                rdfs:isDefinedBy <http://ontology.ethereal.cz/irao> ;
+                rdfs:label "Researcher"@en .
+
+
+###  http://ontology.ethereal.cz/irao/Software
+irao:Software rdf:type owl:Class ;
+              rdfs:comment "A software is a type of informatics research artifact"@en ;
+              rdfs:isDefinedBy <http://ontology.ethereal.cz/irao> ;
+              rdfs:label "Software"@en .
+
+
+###  http://vivoweb.org/ontology/core#Project
+vivo:Project rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/AIModel
+<https://w3id.org/Green-AI-Ontology/ontology/AIModel> rdf:type owl:Class ;
+                                                      rdfs:comment "An AI model is an program or mathematical algorithm that is trained using a set of data that enables it to perform specific tasks"@en ;
+                                                      rdfs:label "AI Model"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/CPU
+<https://w3id.org/Green-AI-Ontology/ontology/CPU> rdf:type owl:Class ;
+                                                  rdfs:comment "A processing unit (CPU) is an electrical component that performs operations on an external data source"@en ;
+                                                  rdfs:label "CPU"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/CPUCount
+<https://w3id.org/Green-AI-Ontology/ontology/CPUCount> rdf:type owl:Class ;
+                                                       rdfs:comment "This class is used when a particular CPU is used several times"@en ;
+                                                       rdfs:label "CPU Count"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure
+<https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> rdf:type owl:Class ;
+                                                            rdfs:comment "The Energy Measurements metrics of a final AI model"@en ;
+                                                            rdfs:label "Energy Measure"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasureAllExperiments
+<https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasureAllExperiments> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                                          rdfs:comment "The Energy Measurements metrics of an AI model including all Experiments and trainings"@en ;
+                                                                          rdfs:label "Energy Measure All Experiments"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementService
+<https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementService> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                                       rdfs:comment "A Energy Measurement Service is a online service that calculates one or more energy measurement metrics for a final AI model"@en ;
+                                                                       rdfs:label "Energy Measurement Service"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementServiceAllExperiments
+<https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasurementServiceAllExperiments> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf <https://w3id.org/Green-AI-Ontology/ontology/EnergyMeasure> ;
+                                                                                     rdfs:comment "A Energy Measurement Service is a online service that calculates one or more energy measurement metrics for an AI model including all Experiments and trainings"@en ;
+                                                                                     rdfs:label "Energy Measurement Service All Experiments"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/GPU
+<https://w3id.org/Green-AI-Ontology/ontology/GPU> rdf:type owl:Class ;
+                                                  rdfs:comment "A graphics processing unit (GPU) is an electrical component for hardware specialized and optimized for the calculation of graphics"@en ;
+                                                  rdfs:label "GPU"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/GPUCount
+<https://w3id.org/Green-AI-Ontology/ontology/GPUCount> rdf:type owl:Class ;
+                                                       rdfs:comment "This class is used when a particular GPU is used several times"@en ;
+                                                       rdfs:label "GPU Count"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings
+<https://w3id.org/Green-AI-Ontology/ontology/HardwareSettings> rdf:type owl:Class ;
+                                                               rdfs:comment "Hardware settings are the totality of used hardware resources and related informations"@en ;
+                                                               rdfs:label "Hardware Settings"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/Location
+<https://w3id.org/Green-AI-Ontology/ontology/Location> rdf:type owl:Class ;
+                                                       rdfs:comment "A Location is a spatial region or named place"@en ;
+                                                       rdfs:label "Location"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/Module
+<https://w3id.org/Green-AI-Ontology/ontology/Module> rdf:type owl:Class ;
+                                                     rdfs:comment "A Module is software composed of a collection of software methods. Modules are often also called packages."@en ;
+                                                     rdfs:label "Module"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/Provider
+<https://w3id.org/Green-AI-Ontology/ontology/Provider> rdf:type owl:Class ;
+                                                       rdfs:comment "A Provider (especially a cloud service provider) provides hardware servers and computing resources"@en ;
+                                                       rdfs:label "Provider"@en .
+
+
+###  https://w3id.org/Green-AI-Ontology/ontology/SoftwareSettings
+<https://w3id.org/Green-AI-Ontology/ontology/SoftwareSettings> rdf:type owl:Class ;
+                                                               rdfs:comment "Software settings are the totality of used software resources and related informations"@en ;
+                                                               rdfs:label "Software Settings"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

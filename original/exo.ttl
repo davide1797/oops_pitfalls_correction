@@ -1,0 +1,2355 @@
+@prefix : <http://purl.obolibrary.org/obo/exo.owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@base <http://purl.obolibrary.org/obo/exo.owl#> .
+
+<http://purl.obolibrary.org/obo/exo.owl> rdf:type owl:Ontology ;
+                                          owl:versionIRI <http://purl.obolibrary.org/obo/exo/releases/2022-06-29/exo.owl> ;
+                                          dc:description "ExO is intended to bridge the gap between exposure science and diverse environmental health disciplines including toxicology, epidemiology, disease surveillance, and epigenetics." ;
+                                          dc:title "Exposure ontology (ExO)" ;
+                                          terms:license <https://creativecommons.org/licenses/by/4.0/> ;
+                                          oboInOwl:default-namespace "source" ;
+                                          oboInOwl:hasOBOFormatVersion "1.2" ;
+                                          owl:versionInfo "2022-06-29" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                rdfs:label "definition" .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000231
+obo:IAO_0000231 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0100001
+obo:IAO_0100001 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+terms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#created_by
+oboInOwl:created_by rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#creation_date
+oboInOwl:creation_date rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#default-namespace
+oboInOwl:default-namespace rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasAlternativeId
+oboInOwl:hasAlternativeId rdf:type owl:AnnotationProperty ;
+                          rdfs:label "has_alternative_id" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasDbXref
+oboInOwl:hasDbXref rdf:type owl:AnnotationProperty ;
+                   rdfs:label "database_cross_reference" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+oboInOwl:hasExactSynonym rdf:type owl:AnnotationProperty ;
+                         rdfs:label "has_exact_synonym" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasOBOFormatVersion
+oboInOwl:hasOBOFormatVersion rdf:type owl:AnnotationProperty ;
+                             rdfs:label "has_obo_format_version" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasOBONamespace
+oboInOwl:hasOBONamespace rdf:type owl:AnnotationProperty ;
+                         rdfs:label "has_obo_namespace" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym
+oboInOwl:hasRelatedSynonym rdf:type owl:AnnotationProperty ;
+                           rdfs:label "has_related_synonym" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#id
+oboInOwl:id rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#shorthand
+oboInOwl:shorthand rdf:type owl:AnnotationProperty ;
+                   rdfs:label "shorthand" .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#label
+rdfs:label rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000050
+obo:BFO_0000050 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000115 "For continuants: C part_of C' if and only if: given any c that instantiates C at a time t, there is some c' such that c' instantiates C' at time t, and c *part_of* c' at t. For processes: P part_of P' if and only if: given any p that instantiates P at a time t, there is some p' such that p' instantiates P' at time t, and p *part_of* p' at t. (Here *part_of* is the instance-level part-relation.)" ;
+                oboInOwl:hasDbXref "BFO:0000050" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "part_of" ;
+                oboInOwl:shorthand "part_of" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:BFO_0000050 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "For continuants: C part_of C' if and only if: given any c that instantiates C at a time t, there is some c' such that c' instantiates C' at time t, and c *part_of* c' at t. For processes: P part_of P' if and only if: given any p that instantiates P at a time t, there is some p' such that p' instantiates P' at time t, and p *part_of* p' at t. (Here *part_of* is the instance-level part-relation.)" ;
+   oboInOwl:hasDbXref "PMID:15892874"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000051
+obo:BFO_0000051 rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty ;
+                oboInOwl:hasDbXref "BFO:0000051" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "has_part" ;
+                oboInOwl:shorthand "has_part" ;
+                rdfs:label "has_part" .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002434
+obo:RO_0002434 rdf:type owl:ObjectProperty ;
+               oboInOwl:hasDbXref "RO:0002434" ;
+               oboInOwl:hasOBONamespace "source" ;
+               oboInOwl:id "interacts_with" ;
+               oboInOwl:shorthand "interacts_with" ;
+               rdfs:label "interacts with" .
+
+
+###  http://purl.obolibrary.org/obo/exo#characterizes
+<http://purl.obolibrary.org/obo/exo#characterizes> rdf:type owl:ObjectProperty ;
+                                                   oboInOwl:hasOBONamespace "source" ;
+                                                   oboInOwl:id "characterizes" ;
+                                                   rdfs:label "characterizes" .
+
+
+###  http://purl.obolibrary.org/obo/exo#interacts_with_an_exposure_receptor_via
+<http://purl.obolibrary.org/obo/exo#interacts_with_an_exposure_receptor_via> rdf:type owl:ObjectProperty ;
+                                                                             oboInOwl:hasOBONamespace "source" ;
+                                                                             oboInOwl:id "interacts_with_an_exposure_receptor_via" ;
+                                                                             rdfs:label "interacts_with_an_exposure_receptor_via" .
+
+
+###  http://purl.obolibrary.org/obo/exo#interacts_with_an_exposure_stressor_via
+<http://purl.obolibrary.org/obo/exo#interacts_with_an_exposure_stressor_via> rdf:type owl:ObjectProperty ;
+                                                                             oboInOwl:hasOBONamespace "source" ;
+                                                                             oboInOwl:id "interacts_with_an_exposure_stressor_via" ;
+                                                                             rdfs:label "interacts_with_an_exposure stressor_via" .
+
+
+###  http://purl.obolibrary.org/obo/exo#is_associated_with
+<http://purl.obolibrary.org/obo/exo#is_associated_with> rdf:type owl:ObjectProperty ;
+                                                        oboInOwl:hasOBONamespace "source" ;
+                                                        oboInOwl:id "is_associated_with" ;
+                                                        rdfs:label "is_associated_with" .
+
+
+###  http://purl.obolibrary.org/obo/exo#targeted_to
+<http://purl.obolibrary.org/obo/exo#targeted_to> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000015
+obo:BFO_0000015 rdf:type owl:Class ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "BFO:0000015" ;
+                rdfs:label "process" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000000
+obo:ExO_0000000 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:RO_0002434 ;
+                                  owl:someValuesFrom obo:ExO_0000001
+                                ] ;
+                obo:IAO_0000115 "An agent, stimulus, activity, or event that causes stress or tension on an organism and interacts with an exposure_receptor during an exposure event." ;
+                oboInOwl:creation_date "2010-09-21T02:43:50Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000000" ;
+                rdfs:label "exposure stressor" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000000 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An agent, stimulus, activity, or event that causes stress or tension on an organism and interacts with an exposure_receptor during an exposure event." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000001
+obo:ExO_0000001 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:RO_0002434 ;
+                                  owl:someValuesFrom obo:ExO_0000000
+                                ] ;
+                obo:IAO_0000115 "An entity (e.g., a human, human population, or a human organ) that interacts with an exposure stressor during an exposure event." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2010-09-21T02:45:36Z" ;
+                oboInOwl:hasExactSynonym "exposure recipient" ,
+                                         "exposure target" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000001" ;
+                rdfs:label "exposure_receptor" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000001 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An entity (e.g., a human, human population, or a human organ) that interacts with an exposure stressor during an exposure event." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000003
+obo:ExO_0000003 rdf:type owl:Class ;
+                obo:IAO_0000115 "Entity that results from the interaction between and exposure_receptor and an exposure stressor during an exposure event." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2010-09-21T02:48:49Z" ;
+                oboInOwl:hasOBONamespace "exposure_outcome" ;
+                oboInOwl:hasRelatedSynonym "interaction outcome" ;
+                oboInOwl:id "ExO:0000003" ;
+                rdfs:label "exposure outcome" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000003 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "Entity that results from the interaction between and exposure_receptor and an exposure stressor during an exposure event." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000004
+obo:ExO_0000004 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000000
+                                ] ;
+                obo:IAO_0000115 "A exposure transport path is the course an agent takes from the source to the target." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:29:33Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000004" ;
+                rdfs:label "exposure transport path" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000004 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A exposure transport path is the course an agent takes from the source to the target." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000005
+obo:ExO_0000005 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000000 ;
+                obo:IAO_0000115 "An agent of biological origin." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2010-09-21T10:09:17Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000005" ;
+                rdfs:label "biological agent" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000005 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An agent of biological origin." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000007
+obo:ExO_0000007 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000000 ;
+                obo:IAO_0000115 "An exposure stressor that is a change in the distributions, abundance and relations of organisms and their interactions with the environment." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2010-09-21T10:14:38Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000007" ;
+                rdfs:label "ecological perturbation" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000007 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An exposure stressor that is a change in the distributions, abundance and relations of organisms and their interactions with the environment." ;
+   oboInOwl:hasDbXref "google:google"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000008
+obo:ExO_0000008 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000000 ;
+                obo:IAO_0000115 "An agent as a source of energy that may cause injury or disease (e.g., noise, vibration, radiation, temperature extremes)." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2010-09-21T10:15:42Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000008" ;
+                rdfs:label "physical agent" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000008 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An agent as a source of energy that may cause injury or disease (e.g., noise, vibration, radiation, temperature extremes)." ;
+   oboInOwl:hasDbXref "google:google"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000009
+obo:ExO_0000009 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000000 ;
+                obo:IAO_0000115 "An agent that interferes with one's psychological development in and interaction with a social environment." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2010-09-21T10:16:35Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000009" ;
+                rdfs:label "psychosocial agent" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000009 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An agent that interferes with one's psychological development in and interaction with a social environment." ;
+   oboInOwl:hasDbXref "google:google"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000010
+obo:ExO_0000010 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000004 ;
+                obo:IAO_0000115 "A transport path that allows a stressor to interact with a receptor via air." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:29:46Z" ;
+                oboInOwl:hasOBONamespace "exposure_transport_path" ;
+                oboInOwl:id "ExO:0000010" ;
+                rdfs:label "air transport path" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000010 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A transport path that allows a stressor to interact with a receptor via air." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000011
+obo:ExO_0000011 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000000 ;
+                obo:IAO_0000115 "A mechanical agent applied to biological systems, such as humans, animals, plants, organs, and cells" ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:17:29Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000011" ;
+                rdfs:label "biomechanical agent" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000011 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A mechanical agent applied to biological systems, such as humans, animals, plants, organs, and cells" ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000012
+obo:ExO_0000012 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000007 ;
+                obo:IAO_0000115 "An ecological perturbation that results from the deterioration of  an ecological or environmental area that is inhabited by a particular species of animal, plant or other type of organism." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:18:53Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000012" ;
+                rdfs:label "habitat degradation" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000012 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An ecological perturbation that results from the deterioration of  an ecological or environmental area that is inhabited by a particular species of animal, plant or other type of organism." ;
+   oboInOwl:hasDbXref "GOC:hjd"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000013
+obo:ExO_0000013 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000007 ;
+                obo:IAO_0000115 "An ecological perturbation that is acidic water, usually pH 2.5 to 4.5, which poisons the ecosystem and adversely affects plants, fishes, and mammals. It is caused by industrial pollutants, mainly sulfur oxides and nitrogen oxides, emitted into the atmosphere and returning to earth in the form of acidic rain water." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:19:11Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000013" ;
+                rdfs:label "acid rain" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000013 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An ecological perturbation that is acidic water, usually pH 2.5 to 4.5, which poisons the ecosystem and adversely affects plants, fishes, and mammals. It is caused by industrial pollutants, mainly sulfur oxides and nitrogen oxides, emitted into the atmosphere and returning to earth in the form of acidic rain water." ;
+   oboInOwl:hasDbXref "MSH:D015258" ,
+                      "UMLS:C0001111"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000014
+obo:ExO_0000014 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000007 ;
+                obo:IAO_0000115 "An ecological pertubation that is any significant change in measures of climate (such as temperature, precipitation, or wind) lasting for an extended period (decades or longer). It may result from natural factors such as changes in the sun's intensity, natural processes within the climate system such as changes in ocean circulation, or human activities." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:19:26Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000014" ;
+                rdfs:label "climate change" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000014 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An ecological pertubation that is any significant change in measures of climate (such as temperature, precipitation, or wind) lasting for an extended period (decades or longer). It may result from natural factors such as changes in the sun's intensity, natural processes within the climate system such as changes in ocean circulation, or human activities." ;
+   oboInOwl:hasDbXref "MSH:D057231" ,
+                      "UMLS:C2718051"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000015
+obo:ExO_0000015 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000009 ;
+                obo:IAO_0000115 "A psychosocial agent that is a situation in which the level of living of an individual, family, or group is below the standard of the community. It is often related to a specific income level." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:19:54Z" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:hasRelatedSynonym "indigency" ;
+                oboInOwl:id "ExO:0000015" ;
+                rdfs:label "poverty" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000015 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A psychosocial agent that is a situation in which the level of living of an individual, family, or group is below the standard of the community. It is often related to a specific income level." ;
+   oboInOwl:hasDbXref "MSH:D011203"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000016
+obo:ExO_0000016 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000000
+                                ] ;
+                obo:IAO_0000115 "Where something is available or from where it originates." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:20:11Z" ;
+                oboInOwl:hasDbXref "CTD:curators" ;
+                oboInOwl:hasOBONamespace "exposure_stressor" ;
+                oboInOwl:id "ExO:0000016" ;
+                rdfs:label "source" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000016 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "Where something is available or from where it originates." ;
+   oboInOwl:hasDbXref "UMLS:C0449416"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000017
+obo:ExO_0000017 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000088 ;
+                obo:IAO_0000115 "A spatial quality inhering in a bearer by virtue of the bearer's spatial location relative to other objects in the vicinity." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:22:40Z" ;
+                oboInOwl:hasOBONamespace "spatial_quality" ;
+                oboInOwl:hasRelatedSynonym "Placement" ;
+                oboInOwl:id "ExO:0000017" ;
+                rdfs:label "location" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000017 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A spatial quality inhering in a bearer by virtue of the bearer's spatial location relative to other objects in the vicinity." ;
+   oboInOwl:hasDbXref "PATO:0000140"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000018
+obo:ExO_0000018 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000017 ;
+                obo:IAO_0000115 "Substances or processes that originate outside of an organism or a system." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:23:00Z" ;
+                oboInOwl:hasOBONamespace "spatial_quality" ;
+                oboInOwl:id "ExO:0000018" ;
+                rdfs:label "exogenous" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000018 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "Substances or processes that originate outside of an organism or a system." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000019
+obo:ExO_0000019 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000017 ;
+                obo:IAO_0000115 "A location that is happening or arising or located inside some limits, or especially, some surface." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:23:14Z" ;
+                oboInOwl:hasOBONamespace "spatial_quality" ;
+                oboInOwl:id "ExO:0000019" ;
+                rdfs:label "indoor" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000019 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A location that is happening or arising or located inside some limits, or especially, some surface." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000020
+obo:ExO_0000020 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000017 ;
+                obo:IAO_0000115 "An exogenous location that is happening or arising or located outside" ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:23:24Z" ;
+                oboInOwl:hasOBONamespace "spatial_quality" ;
+                oboInOwl:id "ExO:0000020" ;
+                rdfs:label "outdoor" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000020 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An exogenous location that is happening or arising or located outside" ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000021
+obo:ExO_0000021 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000017 ;
+                obo:IAO_0000115 "Substances or processes that originate within an organism or a system." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:23:36Z" ;
+                oboInOwl:hasOBONamespace "spatial_quality" ;
+                oboInOwl:id "ExO:0000021" ;
+                rdfs:label "endogenous" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000021 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "Substances or processes that originate within an organism or a system." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000022
+obo:ExO_0000022 rdf:type owl:Class ;
+                obo:IAO_0000115 "Any agent, entity, activity, or event that causally effects an organism and interacts with an exposure receptor during an exposure event." ;
+                oboInOwl:created_by "http://orcid.org/0000-0002-7463-6306" ;
+                oboInOwl:creation_date "2021-10-20T17:44:37Z" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "ExO:0000022" ;
+                rdfs:label "exposure stimulus" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000023
+obo:ExO_0000023 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000016 ;
+                obo:IAO_0000115 "The act of taking something through an established and usually routine set of procedures to convert it from one form to another." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:24:15Z" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "ExO:0000023" ;
+                rdfs:label "process" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000023 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The act of taking something through an established and usually routine set of procedures to convert it from one form to another." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000024
+obo:ExO_0000024 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000023 ;
+                obo:IAO_0000115 "A process occurring in living organisms." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:24:45Z" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "ExO:0000024" ;
+                rdfs:label "biological process" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000024 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A process occurring in living organisms." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000025
+obo:ExO_0000025 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000023 ;
+                obo:IAO_0000115 "A systematic series of mechanical or chemical operations that produce or manufacture something." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:24:59Z" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "ExO:0000025" ;
+                rdfs:label "industrial process" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000025 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A systematic series of mechanical or chemical operations that produce or manufacture something." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000026
+obo:ExO_0000026 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000023 ;
+                obo:IAO_0000115 "The exposure process of producing food, feed, fiber and other desired products by cultivation of certain plants or raising domesticated animals (livestock)." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:25:09Z" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "ExO:0000026" ;
+                rdfs:label "agricultural process" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000026 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The exposure process of producing food, feed, fiber and other desired products by cultivation of certain plants or raising domesticated animals (livestock)." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000028
+obo:ExO_0000028 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000004 ;
+                obo:IAO_0000115 "An exposure transport path involving the interaction of an exposure_receptor with an exposure stressor via water." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:29:57Z" ;
+                oboInOwl:hasOBONamespace "exposure_transport_path" ;
+                oboInOwl:id "ExO:0000028" ;
+                rdfs:label "water transport path" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000028 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An exposure transport path involving the interaction of an exposure_receptor with an exposure stressor via water." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000029
+obo:ExO_0000029 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000004 ;
+                obo:IAO_0000115 "An exposure transport path involving the interaction of an exposure_receptor with an exposure stressor via soil." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:30:08Z" ;
+                oboInOwl:hasOBONamespace "exposure_transport_path" ;
+                oboInOwl:id "ExO:0000029" ;
+                rdfs:label "soil transport path" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000029 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An exposure transport path involving the interaction of an exposure_receptor with an exposure stressor via soil." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000030
+obo:ExO_0000030 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000001 ;
+                obo:IAO_0000115 "The earth, all of the organisms living on it, and all of the environmental factors, which act on the organisms. The volume of area where biological matter can exist, slightly above, on or below ground level." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:26:27Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000030" ;
+                rdfs:label "ecosphere" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000030 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The earth, all of the organisms living on it, and all of the environmental factors, which act on the organisms. The volume of area where biological matter can exist, slightly above, on or below ground level." ;
+   oboInOwl:hasDbXref "XCTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000031
+obo:ExO_0000031 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000030
+                                ] ;
+                obo:IAO_0000115 "MERGED DEFINITION:\\nTARGET DEFINITION: An exposure_receptor that is the global ecological system integrating all living beings and their relationships, including their interaction with the elements of the lithosphere, hydrosphere and atmosphere.\\n--------------------\\nSOURCE DEFINITION: An exposure_receptor that is the part of the environment that is made or modified by humans for use in human activities and human habitats." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:27:26Z" ;
+                oboInOwl:hasAlternativeId "ExO:0000032" ;
+                oboInOwl:hasExactSynonym "anthrosphere" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000031" ;
+                rdfs:label "biosphere" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000031 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "MERGED DEFINITION:\\nTARGET DEFINITION: An exposure_receptor that is the global ecological system integrating all living beings and their relationships, including their interaction with the elements of the lithosphere, hydrosphere and atmosphere.\\n--------------------\\nSOURCE DEFINITION: An exposure_receptor that is the part of the environment that is made or modified by humans for use in human activities and human habitats." ;
+   oboInOwl:hasDbXref "GOC:hjd"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000032
+obo:ExO_0000032 rdf:type owl:Class ;
+                obo:IAO_0000231 obo:IAO_0000227 ;
+                obo:IAO_0100001 obo:ExO_0000031 ;
+                owl:deprecated "true"^^xsd:boolean .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000034
+obo:ExO_0000034 rdf:type owl:Class ;
+                obo:IAO_0000115 "An individual attribute that is the usual or principal work or business of an individual." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:28:22Z" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:id "ExO:0000034" ;
+                rdfs:label "occupation" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000034 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An individual attribute that is the usual or principal work or business of an individual." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000035
+obo:ExO_0000035 rdf:type owl:Class ;
+                obo:IAO_0000115 "The individual attribute that is the genes and their composition that are characteristic of an individual or population." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:28:41Z" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:id "ExO:0000035" ;
+                rdfs:label "genetic background" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000035 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The individual attribute that is the genes and their composition that are characteristic of an individual or population." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000037
+obo:ExO_0000037 rdf:type owl:Class ;
+                obo:IAO_0000115 "A individual attribute that is a particular period in the life of an organism." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:29:39Z" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:id "ExO:0000037" ;
+                rdfs:label "lifestage" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000037 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A individual attribute that is a particular period in the life of an organism." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000038
+obo:ExO_0000038 rdf:type owl:Class ;
+                obo:IAO_0000115 "The condition of an organism in all aspects (e.g., functional or metabolic efficiency)." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:29:51Z" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:id "ExO:0000038" ;
+                rdfs:label "health status" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000038 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The condition of an organism in all aspects (e.g., functional or metabolic efficiency)." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000039
+obo:ExO_0000039 rdf:type owl:Class ;
+                obo:IAO_0000115 "An individual attribute human society and its modes of organization." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:30:08Z" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:id "ExO:0000039" ;
+                rdfs:label "social characteristic" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000039 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An individual attribute human society and its modes of organization." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000040
+obo:ExO_0000040 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000039 ;
+                obo:IAO_0000115 "A social characteristic about or relating to the arts and manners favored or practiced by a group." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:30:27Z" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:id "ExO:0000040" ;
+                rdfs:label "cultural background" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000040 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A social characteristic about or relating to the arts and manners favored or practiced by a group." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000041
+obo:ExO_0000041 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000039 ;
+                obo:IAO_0000115 "The act or process of imparting or acquiring knowledge." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:30:40Z" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:id "ExO:0000041" ;
+                rdfs:label "education" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000041 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The act or process of imparting or acquiring knowledge." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000042
+obo:ExO_0000042 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000001 ;
+                obo:IAO_0000115 "Being or characteristic of a single thing or person." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:30:56Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000042" ;
+                rdfs:label "human individual" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000042 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "Being or characteristic of a single thing or person." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000043
+obo:ExO_0000043 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000101 ;
+                obo:IAO_0000115 "The individual attribute describing the structure of a living organism." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:31:27Z" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:id "ExO:0000043" ;
+                rdfs:label "anatomy" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000043 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The individual attribute describing the structure of a living organism." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000048
+obo:ExO_0000048 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000031
+                                ] ;
+                obo:IAO_0000115 "Human-made surroundings that provide the setting for human activity, ranging in scale from personal shelter and buildings to neighborhoods and cite, and can often include their supporting infrastructure, such as water supply or energy networks." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:32:56Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000048" ;
+                rdfs:label "built environment" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000048 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "Human-made surroundings that provide the setting for human activity, ranging in scale from personal shelter and buildings to neighborhoods and cite, and can often include their supporting infrastructure, such as water supply or energy networks." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000050
+obo:ExO_0000050 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000016
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000064
+                                ] ;
+                obo:IAO_0000115 "A quality of a single process inhering in a bearer by virtue of the bearer's occurrence." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:37:16Z" ;
+                oboInOwl:hasOBONamespace "temporal_quality" ;
+                oboInOwl:hasRelatedSynonym "Incidence" ,
+                                           "occurrence quality" ;
+                oboInOwl:id "ExO:0000050" ;
+                rdfs:label "temporal quality" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000050 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A quality of a single process inhering in a bearer by virtue of the bearer's occurrence." ;
+   oboInOwl:hasDbXref "PATO:0000057"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000051
+obo:ExO_0000051 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000050 ;
+                obo:IAO_0000115 "A physical quality, which inheres in a bearer by virtue of the number of the bearer's repetitive actions in a particular time." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:37:46Z" ;
+                oboInOwl:hasOBONamespace "temporal_quality" ;
+                oboInOwl:id "ExO:0000051" ;
+                rdfs:label "frequency" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000051 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A physical quality, which inheres in a bearer by virtue of the number of the bearer's repetitive actions in a particular time." ;
+   oboInOwl:hasDbXref "PATO:0000044"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000052
+obo:ExO_0000052 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000051 ;
+                obo:IAO_0000115 "A quality of a single process inhering in a bearer by virtue of the bearer's being marked by breaks or interruptions." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:37:57Z" ;
+                oboInOwl:hasOBONamespace "temporal_quality" ;
+                oboInOwl:hasRelatedSynonym "discontinuous" ,
+                                           "interrupted" ;
+                oboInOwl:id "ExO:0000052" ;
+                rdfs:label "intermittent" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000052 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A quality of a single process inhering in a bearer by virtue of the bearer's being marked by breaks or interruptions." ;
+   oboInOwl:hasDbXref "PATO:0000690"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000053
+obo:ExO_0000053 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000051 ;
+                obo:IAO_0000115 "A quality of a single process inhering in a bearer by virtue of the bearer's being uninterrupted in time, sequence, substance, or extent." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:38:09Z" ;
+                oboInOwl:hasOBONamespace "temporal_quality" ;
+                oboInOwl:hasRelatedSynonym "uninterrupted" ;
+                oboInOwl:id "ExO:0000053" ;
+                rdfs:label "continuous" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000053 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A quality of a single process inhering in a bearer by virtue of the bearer's being uninterrupted in time, sequence, substance, or extent." ;
+   oboInOwl:hasDbXref "PATO:0000689"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000054
+obo:ExO_0000054 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000050 ;
+                obo:IAO_0000115 "Amount of time during which an event persists." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:38:24Z" ;
+                oboInOwl:hasOBONamespace "temporal_quality" ;
+                oboInOwl:id "ExO:0000054" ;
+                rdfs:label "duration" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000054 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "Amount of time during which an event persists." ;
+   oboInOwl:hasDbXref "SBO:0000347"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000055
+obo:ExO_0000055 rdf:type owl:Class ;
+                obo:IAO_0000115 "The way people or other living organisms come into contact with a stressor." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:38:37Z" ;
+                oboInOwl:hasOBONamespace "exposure_event" ;
+                oboInOwl:id "ExO:0000055" ;
+                rdfs:label "route" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000055 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The way people or other living organisms come into contact with a stressor." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000056
+obo:ExO_0000056 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000055 ;
+                obo:IAO_0000115 "The process of taking a material (e.g., stressor) into the mouth or body." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:38:47Z" ;
+                oboInOwl:hasOBONamespace "route" ;
+                oboInOwl:id "ExO:0000056" ;
+                rdfs:label "ingestion" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000056 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The process of taking a material (e.g., stressor) into the mouth or body." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000057
+obo:ExO_0000057 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000055 ;
+                obo:IAO_0000115 "The process of drawing in by breathing." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:38:59Z" ;
+                oboInOwl:hasOBONamespace "route" ;
+                oboInOwl:id "ExO:0000057" ;
+                rdfs:label "inhalation" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000057 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The process of drawing in by breathing." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000058
+obo:ExO_0000058 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000055 ;
+                obo:IAO_0000115 "The process of one material (absorbent) being retained by another (absorbate)." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:39:11Z" ;
+                oboInOwl:hasOBONamespace "route" ;
+                oboInOwl:id "ExO:0000058" ;
+                rdfs:label "absorption" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000058 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The process of one material (absorbent) being retained by another (absorbate)." ;
+   oboInOwl:hasDbXref "REX:0000188"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000059
+obo:ExO_0000059 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000055 ;
+                obo:IAO_0000115 "The extraction of certain materials from a carrier into a liquid (usually, but not always a solvent)." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:39:25Z" ;
+                oboInOwl:hasOBONamespace "route" ;
+                oboInOwl:id "ExO:0000059" ;
+                rdfs:label "leaching" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000059 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The extraction of certain materials from a carrier into a liquid (usually, but not always a solvent)." ;
+   oboInOwl:hasDbXref "GOC:hjd"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000060
+obo:ExO_0000060 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000055 ;
+                obo:IAO_0000115 "A method of putting liquid into the body with a syringe and a hollow needle that punctures the skin." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T09:39:37Z" ;
+                oboInOwl:hasOBONamespace "route" ;
+                oboInOwl:id "ExO:0000060" ;
+                rdfs:label "injection" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000060 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A method of putting liquid into the body with a syringe and a hollow needle that punctures the skin." ;
+   oboInOwl:hasDbXref "GOC:hjd"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000064
+obo:ExO_0000064 rdf:type owl:Class ;
+                obo:IAO_0000115 "A planned process with the objective to produce information about some evaluant." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:22:29Z" ;
+                oboInOwl:hasOBONamespace "assay" ;
+                oboInOwl:id "ExO:0000064" ;
+                rdfs:label "assay" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000064 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A planned process with the objective to produce information about some evaluant." ;
+   oboInOwl:hasDbXref "OBI:0000070"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000066
+obo:ExO_0000066 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000050
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000067
+                                ] ;
+                obo:IAO_0000115 "A unit of measurement is a standardized quantity of a physical quality." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:23:54Z" ;
+                oboInOwl:hasOBONamespace "unit" ;
+                oboInOwl:id "ExO:0000066" ;
+                rdfs:label "unit" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000066 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A unit of measurement is a standardized quantity of a physical quality." ;
+   oboInOwl:hasDbXref "UO:0000000"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000067
+obo:ExO_0000067 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000064 ;
+                obo:IAO_0000115 "A measurement is an information entity that is a recording of the output of a measurement such as produced by an instrument." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:24:53Z" ;
+                oboInOwl:hasOBONamespace "assay" ;
+                oboInOwl:id "ExO:0000067" ;
+                rdfs:label "measurement" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000067 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A measurement is an information entity that is a recording of the output of a measurement such as produced by an instrument." ;
+   oboInOwl:hasDbXref "EFO:0001444"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000070
+obo:ExO_0000070 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000050 ;
+                obo:IAO_0000115 "An exposure quality in which events occur in sequence." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:26:02Z" ;
+                oboInOwl:hasOBONamespace "temporal_quality" ;
+                oboInOwl:id "ExO:0000070" ;
+                rdfs:label "time" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000070 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An exposure quality in which events occur in sequence." ;
+   oboInOwl:hasDbXref "PATO:0000165"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000071
+obo:ExO_0000071 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000064 ;
+                obo:IAO_0000115 "A substance used as an indicator of a biological state." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:26:20Z" ;
+                oboInOwl:hasOBONamespace "assay" ;
+                oboInOwl:id "ExO:0000071" ;
+                rdfs:label "biological marker" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000071 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A substance used as an indicator of a biological state." ;
+   oboInOwl:hasDbXref "CHEBI:59163"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000072
+obo:ExO_0000072 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000064 ;
+                obo:IAO_0000115 "A representation." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:26:51Z" ;
+                oboInOwl:hasOBONamespace "assay" ;
+                oboInOwl:id "ExO:0000072" ;
+                rdfs:label "model" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000072 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A representation." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000073
+obo:ExO_0000073 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000072 ;
+                obo:IAO_0000115 "A representation of a particular system or subject matter that may only be drawn on paper, described in words, or imagined in the mind." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:27:05Z" ;
+                oboInOwl:hasOBONamespace "assay" ;
+                oboInOwl:id "ExO:0000073" ;
+                rdfs:label "conceptual" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000073 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A representation of a particular system or subject matter that may only be drawn on paper, described in words, or imagined in the mind." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000074
+obo:ExO_0000074 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000072 ;
+                obo:IAO_0000115 "A representation of a particular system or subject matter that can be computed." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:27:35Z" ;
+                oboInOwl:hasOBONamespace "assay" ;
+                oboInOwl:id "ExO:0000074" ;
+                rdfs:label "mathematical" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000074 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A representation of a particular system or subject matter that can be computed." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000075
+obo:ExO_0000075 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000072 ;
+                obo:IAO_0000115 "A representation of a particular system or subject matter that is computer-derived." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:27:47Z" ;
+                oboInOwl:hasOBONamespace "assay" ;
+                oboInOwl:id "ExO:0000075" ;
+                rdfs:label "computational" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000075 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A representation of a particular system or subject matter that is computer-derived." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000076
+obo:ExO_0000076 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000003 ;
+                obo:IAO_0000115 "The total quantity or strength of a substance administered at one time." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:28:26Z" ;
+                oboInOwl:hasOBONamespace "exposure_event" ;
+                oboInOwl:id "ExO:0000076" ;
+                rdfs:label "dose" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000076 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The total quantity or strength of a substance administered at one time." ;
+   oboInOwl:hasDbXref "EFO:0000428"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000077
+obo:ExO_0000077 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000003 ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:29:49Z" ;
+                oboInOwl:hasOBONamespace "exposure_outcome" ;
+                oboInOwl:id "ExO:0000077" ;
+                rdfs:label "biological response" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000078
+obo:ExO_0000078 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000077 ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:30:06Z" ;
+                oboInOwl:hasOBONamespace "exposure_outcome" ;
+                oboInOwl:id "ExO:0000078" ;
+                rdfs:label "molecular response" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000079
+obo:ExO_0000079 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000077 ;
+                obo:IAO_0000115 "A disease is a pattern of abnormal functioning, or abnormal localization of normal functioning, and/or abnormal localization of constituents when compared to other members of that species." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:30:35Z" ;
+                oboInOwl:hasOBONamespace "exposure_outcome" ;
+                oboInOwl:id "ExO:0000079" ;
+                rdfs:label "disease" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000079 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A disease is a pattern of abnormal functioning, or abnormal localization of normal functioning, and/or abnormal localization of constituents when compared to other members of that species." ;
+   oboInOwl:hasDbXref "DOExO:4" ,
+                      "MSH2010_2010_02_22:D004194" ,
+                      "UMLS:C0012634"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000080
+obo:ExO_0000080 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000077 ;
+                obo:IAO_0000115 "A symptom is a perceived change in function, sensation, loss, disturbance or appearance reported by a patient indicative of a disease." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:30:47Z" ;
+                oboInOwl:hasOBONamespace "exposure_outcome" ;
+                oboInOwl:id "ExO:0000080" ;
+                rdfs:label "symptom" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000080 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A symptom is a perceived change in function, sensation, loss, disturbance or appearance reported by a patient indicative of a disease." ;
+   oboInOwl:hasDbXref "SYOExO:14974"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000082
+obo:ExO_0000082 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000003 ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:31:15Z" ;
+                oboInOwl:hasOBONamespace "exposure_outcome" ;
+                oboInOwl:id "ExO:0000082" ;
+                rdfs:label "public policy" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000083
+obo:ExO_0000083 rdf:type owl:Class ;
+                obo:IAO_0000115 "An exposure medium is a substance through which something else is transmitted or carried during an exposure." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-11T01:33:44Z" ;
+                oboInOwl:hasOBONamespace "assay" ;
+                oboInOwl:id "ExO:0000083" ;
+                rdfs:label "exposure medium" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000083 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "An exposure medium is a substance through which something else is transmitted or carried during an exposure." ;
+   oboInOwl:hasDbXref "sep:00037"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000085
+obo:ExO_0000085 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000016 ;
+                obo:IAO_0000115 "The end result of a manufacturing process; anything that is produced." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-12T12:14:24Z" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "ExO:0000085" ;
+                rdfs:label "commercial product" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000085 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The end result of a manufacturing process; anything that is produced." ;
+   oboInOwl:hasDbXref "NCIThesaurus:C1514468"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000087
+obo:ExO_0000087 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000003 ;
+                obo:IAO_0000115 "The act or fact of interfering so as to modify." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-12T01:34:34Z" ;
+                oboInOwl:hasOBONamespace "exposure_outcome" ;
+                oboInOwl:id "ExO:0000087" ;
+                rdfs:label "exposure intervention" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000087 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The act or fact of interfering so as to modify." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000088
+obo:ExO_0000088 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000016
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000064
+                                ] ;
+                obo:IAO_0000115 "Of or relating to space or components within space." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-01-10T04:20:11Z" ;
+                oboInOwl:hasOBONamespace "spatial_quality" ;
+                oboInOwl:id "ExO:0000088" ;
+                rdfs:label "spatial quality" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000088 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "Of or relating to space or components within space." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000090
+obo:ExO_0000090 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000050 ;
+                                  owl:someValuesFrom obo:ExO_0000064
+                                ] ;
+                obo:IAO_0000115 "The protocol for an assay." ;
+                oboInOwl:created_by "cmattin" ;
+                oboInOwl:creation_date "2011-06-08T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "assay" ;
+                oboInOwl:id "ExO:0000090" ;
+                rdfs:label "method" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:ExO_0000090 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "The protocol for an assay." ;
+   oboInOwl:hasDbXref "CTD:curators"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000091
+obo:ExO_0000091 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000016 ;
+                obo:IAO_0000115 "Of, or relating to, the area in which an individual or population lives, primarily describing the dwelling or shelter used for housing and the location immediately surrounding it" ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-03T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "ExO:0000091" ;
+                rdfs:label "residential environment stressor source" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000092
+obo:ExO_0000092 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000016 ;
+                obo:IAO_0000115 "The external elements and conditions which surround, influence, and affect the life and development of an organism or population." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://meshb.nlm.nih.gov/record/ui?ui=D004777" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:id "ExO:0000092" ;
+                rdfs:label "environmental stressor source" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000093
+obo:ExO_0000093 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000016 ;
+                obo:IAO_0000115 "The origination of a stressor from the location of the principal work or business of an individual." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:hasRelatedSynonym "occupation" ;
+                oboInOwl:id "ExO:0000093" ;
+                rdfs:label "occupational stressor source" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000094
+obo:ExO_0000094 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000016 ;
+                obo:IAO_0000115 "A drug product that contains one or more active and/or inactive ingredients; it is intended to treat, prevent or alleviate the symptoms of disease. This term does not refer to the individual ingredients that make up the product." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C459&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "source" ;
+                oboInOwl:hasRelatedSynonym "drug" ,
+                                           "medication" ,
+                                           "medicine" ;
+                oboInOwl:id "ExO:0000094" ;
+                rdfs:label "medicinal stressor source" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000095
+obo:ExO_0000095 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000016 ;
+                obo:IAO_0000115 "The customary allowance of food and drink taken by a person or an animal from day to day, particularly one especially planned to meet specific requirements of the individual, including or excluding certain items of food; a prescribed course of eating and drinking in which the amount and kind of food, as well as the times at which it is to be taken, are regulated for therapeutic purposes or selected with reference to a particular state of health." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-03T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.02d&code=C15222&ns=NCI_Thesaurus&type=properties&key=n1983551900&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "influencing_factor" ;
+                oboInOwl:hasRelatedSynonym "diet" ,
+                                           "dietary" ;
+                oboInOwl:id "ExO:0000095" ;
+                rdfs:label "dietary stressor source" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000096
+obo:ExO_0000096 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000017 ;
+                obo:IAO_0000115 "A collective generic term that refers here to a wide variety of dependencies, areas of special sovereignty, uninhabited islands, and other entities in addition to the traditional countries or independent states." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=17.02d&ns=NCI_Thesaurus&code=C25464&key=n1028804090&b=1&n=null" ;
+                oboInOwl:hasOBONamespace "location" ;
+                oboInOwl:hasRelatedSynonym "country code" ;
+                oboInOwl:id "ExO:0000096" ;
+                rdfs:label "country" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000097
+obo:ExO_0000097 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000096 ;
+                obo:IAO_0000115 "A region, district or division of a country; a tract; a portion a state, especially one remote from the capital." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.02d&code=C25632&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "location" ;
+                oboInOwl:id "ExO:0000097" ;
+                rdfs:label "province" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000098
+obo:ExO_0000098 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000096 ;
+                obo:IAO_0000115 "An area or portion of something with more or less definite boundaries designed or specified according to some established biological, administrative, economic, demographic, etc. criteria." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.02d&code=C41129&ns=NCI_Thesaurus&type=properties&key=1373536612&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "location" ;
+                oboInOwl:id "ExO:0000098" ;
+                rdfs:label "region" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000099
+obo:ExO_0000099 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000096 ;
+                obo:IAO_0000115 "One of the fifty states which is a member of the federation known as the United States of America. Other US geographic areas, such as Puerto Rico and the District of Columbia, are essentially equivalent to State when used in an address." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.02d&code=C30010&ns=NCI_Thesaurus&type=properties&key=1797607167&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "location" ;
+                oboInOwl:id "ExO:0000099" ;
+                rdfs:label "US State" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000101
+obo:ExO_0000101 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000077 ;
+                obo:IAO_0000115 "The assemblage of traits or outward appearance of an individual. It is the product of interactions between genes and between genes and the environment." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C16977&ns=NCI_Thesaurus&type=properties&key=1003504562&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "biological_response" ;
+                oboInOwl:id "ExO:0000101" ;
+                rdfs:label "phenotype" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000102
+obo:ExO_0000102 rdf:type owl:Class ;
+                obo:IAO_0000115 "How long something or someone has existed; elapsed time since birth." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C25150&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:hasRelatedSynonym "aged" ,
+                                           "chronological age" ,
+                                           "postnatal age" ;
+                oboInOwl:id "ExO:0000102" ;
+                rdfs:label "age" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000104
+obo:ExO_0000104 rdf:type owl:Class ;
+                obo:IAO_0000115 "Consumption of liquids containing ethanol, including the behaviors associated with drinking the alcohol." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C16273&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "influencing_factor" ;
+                oboInOwl:hasRelatedSynonym "alcohol drinking" ,
+                                           "alcohol use" ;
+                oboInOwl:id "ExO:0000104" ;
+                rdfs:label "alcohol consumption" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000105
+obo:ExO_0000105 rdf:type owl:Class ;
+                obo:IAO_0000115 "A general indicator of the body fat an individual is carrying based upon the ratio of weight to height." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C16358&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasExactSynonym "BMI" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:id "ExO:0000105" ;
+                rdfs:label "body mass index" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000106
+obo:ExO_0000106 rdf:type owl:Class ;
+                obo:IAO_0000115 "The customary allowance of food and drink taken by a person or an animal from day to day, particularly one especially planned to meet specific requirements of the individual, including or excluding certain items of food; a prescribed course of eating and drinking in which the amount and kind of food, as well as the times at which it is to be taken, are regulated for therapeutic purposes or selected with reference to a particular state of health." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C15222&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "influencing_factor" ;
+                oboInOwl:hasRelatedSynonym "dietary" ;
+                oboInOwl:id "ExO:0000106" ;
+                rdfs:label "diet" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000107
+obo:ExO_0000107 rdf:type owl:Class ;
+                obo:IAO_0000115 "The genetic constitution of an organism or cell, as distinct from its expressed features or phenotype." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C16631&ns=NCI_Thesaurus&type=properties&key=n167868829&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:hasRelatedSynonym "genetics" ;
+                oboInOwl:id "ExO:0000107" ;
+                rdfs:label "genotype" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000108
+obo:ExO_0000108 rdf:type owl:Class ;
+                obo:IAO_0000115 "Any form of exercise or movement. Physical activity may include planned activity such as walking, running, basketball, or other sports. Physical activity may also include other daily activities such as household chores, yard work, walking the dog, etc." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C17708&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "influencing_factor" ;
+                oboInOwl:id "ExO:0000108" ;
+                rdfs:label "physical activity" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000109
+obo:ExO_0000109 rdf:type owl:Class ;
+                obo:IAO_0000115 "An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C17049&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:hasRelatedSynonym "racial group" ;
+                oboInOwl:id "ExO:0000109" ;
+                rdfs:label "race" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000110
+obo:ExO_0000110 rdf:type owl:Class ;
+                obo:IAO_0000115 "The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C28421&ns=NCI_Thesaurus&type=properties&key=n1987444752&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:hasRelatedSynonym "gender" ;
+                oboInOwl:id "ExO:0000110" ;
+                rdfs:label "sex" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000111
+obo:ExO_0000111 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000110 ;
+                obo:IAO_0000115 "A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C16576&ns=NCI_Thesaurus&type=properties&key=1029234390&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:hasRelatedSynonym "girl" ,
+                                           "woman" ;
+                oboInOwl:id "ExO:0000111" ;
+                rdfs:label "female" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000112
+obo:ExO_0000112 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000110 ;
+                obo:IAO_0000115 "A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C20197&ns=NCI_Thesaurus&type=properties&key=n1984214633&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:hasRelatedSynonym "boy" ,
+                                           "man" ;
+                oboInOwl:id "ExO:0000112" ;
+                rdfs:label "male" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000113
+obo:ExO_0000113 rdf:type owl:Class ;
+                obo:IAO_0000115 "An indication of a person's current tobacco and nicotine consumption as well as some indication of smoking history." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C19796&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "health_status" ;
+                oboInOwl:hasRelatedSynonym "tobacco use" ;
+                oboInOwl:id "ExO:0000113" ;
+                rdfs:label "smoking status" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000114
+obo:ExO_0000114 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000039 ;
+                obo:IAO_0000115 "Characteristics of a person such as education and occupation, used to describe the person's position in stratification systems, access to services, etc." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C17468&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "human_attribute" ;
+                oboInOwl:hasRelatedSynonym "class" ,
+                                           "socioeconomic factors" ;
+                oboInOwl:id "ExO:0000114" ;
+                rdfs:label "socioeconomic status" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000115
+obo:ExO_0000115 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000113 ;
+                owl:disjointWith obo:ExO_0000116 ,
+                                 obo:ExO_0000117 ,
+                                 obo:ExO_0000118 ;
+                obo:IAO_0000115 "An adult who has smoked 100 cigarettes in his or her lifetime and who currently smokes cigarettes. Includes daily smokers and non-daily smokers (also known as occasional smokers)." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C67147&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasExactSynonym "Smoker" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000115" ;
+                rdfs:label "current smoker" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000116
+obo:ExO_0000116 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000113 ;
+                obo:IAO_0000115 "A person who was not smoking at the time of the interview but has smoked at least 100 cigarettes in their life." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C67148&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasExactSynonym "Prior Smoker" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000116" ;
+                rdfs:label "former smoker" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000117
+obo:ExO_0000117 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000113 ;
+                obo:IAO_0000115 "A person who was not smoking at the time of the interview and has smoked less than 100 cigarettes in their life." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C65108&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "non-smoker" ;
+                oboInOwl:id "ExO:0000117" ;
+                rdfs:label "never smoker" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000118
+obo:ExO_0000118 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000113 ;
+                obo:IAO_0000115 "A person who was not smoking at the time of the interview and has smoked less than 100 cigarettes in their life." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-06T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C65108&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Never Smoker" ;
+                oboInOwl:id "ExO:0000118" ;
+                rdfs:label "non-smoker" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000119
+obo:ExO_0000119 rdf:type owl:Class ;
+                obo:IAO_0000115 "Persons who are not yet adults. The specific cut-off age will vary by purpose." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C16423&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "adolescent" ,
+                                           "child" ,
+                                           "schoolchildren" ,
+                                           "teen" ,
+                                           "teenager" ,
+                                           "toddler" ;
+                oboInOwl:id "ExO:0000119" ;
+                rdfs:label "children" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000120
+obo:ExO_0000120 rdf:type owl:Class ;
+                obo:IAO_0000115 "A group of individuals, identified by a common characteristic." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C61512&ns=NCI_Thesaurus&type=properties&key=952446847&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000120" ;
+                rdfs:label "cohort" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000121
+obo:ExO_0000121 rdf:type owl:Class ;
+                obo:IAO_0000115 "Study subjects who serve as controls (i.e., lack the characteristics of a disease or phenotype) in a research study as compared to study subjects with a disease or phenotype as indicated." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000121" ;
+                rdfs:label "controls for disease or phenotype" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000122
+obo:ExO_0000122 rdf:type owl:Class ;
+                obo:IAO_0000115 "An unborn or unhatched vertebrate in the later stages of development showing the main recognizable features of the mature being." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C13235&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000122" ;
+                rdfs:label "fetuses" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000123
+obo:ExO_0000123 rdf:type owl:Class ;
+                obo:IAO_0000115 "A young child between one month and two years of age or between birth and one month of age." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C16731&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "neonate" ,
+                                           "newborn" ;
+                oboInOwl:id "ExO:0000123" ;
+                rdfs:label "infants or newborns" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000124
+obo:ExO_0000124 rdf:type owl:Class ;
+                obo:IAO_0000115 "Persons including soldiers involved with the armed forces." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://meshb.nlm.nih.gov/record/ui?ui=D008889" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000124" ;
+                rdfs:label "military personnel" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000125
+obo:ExO_0000125 rdf:type owl:Class ;
+                obo:IAO_0000115 "A female parent." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C25189&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "mother" ;
+                oboInOwl:id "ExO:0000125" ;
+                rdfs:label "mothers" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000126
+obo:ExO_0000126 rdf:type owl:Class ;
+                obo:IAO_0000115 "Human females who are pregnant." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://meshb.nlm.nih.gov/record/ui?ui=D037841" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Pregnant Women" ;
+                oboInOwl:id "ExO:0000126" ;
+                rdfs:label "pregnant females" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000127
+obo:ExO_0000127 rdf:type owl:Class ;
+                obo:IAO_0000115 "Persons who are observed, analyzed, examined, investigated, experimented upon, or/and treated in the course of a particular study." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.07d&ns=NCI_Thesaurus&code=C41189&key=1161914719&b=1&n=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "study subject" ;
+                oboInOwl:id "ExO:0000127" ;
+                rdfs:label "study subjects" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000128
+obo:ExO_0000128 rdf:type owl:Class ;
+                obo:IAO_0000115 "Study subjects with a disease or phenotype as indicated." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000128" ;
+                rdfs:label "subjects with disease or phenotype" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000129
+obo:ExO_0000129 rdf:type owl:Class ;
+                obo:IAO_0000115 "Study subjects who exhibit characteristics of a specific genotype in a research study." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000129" ;
+                rdfs:label "subjects with gene influence" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000130
+obo:ExO_0000130 rdf:type owl:Class ;
+                obo:IAO_0000115 "Former members of the armed services." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://meshb.nlm.nih.gov/record/ui?ui=D014728" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000130" ;
+                rdfs:label "veterans" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000131
+obo:ExO_0000131 rdf:type owl:Class ;
+                obo:IAO_0000115 "A person performing a job or service for another person or a business firm on a full- or part-time basis and who receives payment for this work." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C51823&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "employee" ,
+                                           "employees" ,
+                                           "worker" ;
+                oboInOwl:id "ExO:0000131" ;
+                rdfs:label "workers" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000132
+obo:ExO_0000132 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person having origins in any of the Black racial groups of Africa. Terms such as \"Haitian\" or \"Negro\" can be used in addition to \"Black or African American\"." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C16352&ns=null&type=synonym&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Black" ,
+                                           "Haitian" ,
+                                           "Negro" ;
+                oboInOwl:id "ExO:0000132" ;
+                rdfs:label "African American" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000133
+obo:ExO_0000133 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "Denotes a person having origins in any indigenous people of Alaska and their descendants and who maintains tribal affiliation, or community or cultural attachment. The concept refers to population subgroups such as Eskimos, Aleuts, Inupiat, Yupik, Alutiiq, Egegik,and Pribilovian, Alaskan Athabascan, Tlingit, and Haida. The concept refers also to individuals who classify themselves as such." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C18237&ns=null&type=synonym&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Alaska Indian" ,
+                                           "Alaskan Athabascan" ,
+                                           "Aleut" ,
+                                           "Alutiq" ,
+                                           "Egegik" ,
+                                           "Eskimo" ,
+                                           "Haida" ,
+                                           "Inupiat" ,
+                                           "Pribilovian" ,
+                                           "Tlingit" ,
+                                           "Yupik" ;
+                oboInOwl:id "ExO:0000133" ;
+                rdfs:label "Alaska Native" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000134
+obo:ExO_0000134 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "Denotes a person having origins in one of the indigenous peoples of North America, who lived on the continent prior to the European colonization. The term includes individuals belonging to a large number of tribes, states, and ethnic groups, many of them still enduring as communities." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C43877&ns=null&type=synonym&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000134" ;
+                rdfs:label "American Indian" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000135
+obo:ExO_0000135 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent, including for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C41260&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000135" ;
+                rdfs:label "Asian" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000136
+obo:ExO_0000136 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person having origins in the original peoples of the Indian sub-continent." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C41262&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Asian Indians" ,
+                                           "Indian" ;
+                oboInOwl:id "ExO:0000136" ;
+                rdfs:label "Asian Indian" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000137
+obo:ExO_0000137 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person of Central or South American culture or origin." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000137" ;
+                rdfs:label "Central or South American" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000138
+obo:ExO_0000138 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A term sometimes used interchangeably with Mexican-American to denote an American citizen of Mexican decent.  The term is a chosen identity of some Mexican-Americans in the United States." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Mexican-American" ;
+                oboInOwl:id "ExO:0000138" ;
+                rdfs:label "Chicano" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000139
+obo:ExO_0000139 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person having origins in any of the original peoples of China." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C43391&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000139" ;
+                rdfs:label "Chinese" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000140
+obo:ExO_0000140 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person of Cuban culture or origin, regardless of race." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C107608&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Cuban-American" ,
+                                           "Hispanic" ,
+                                           "Latino" ;
+                oboInOwl:id "ExO:0000140" ;
+                rdfs:label "Cuban" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000141
+obo:ExO_0000141 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "Denotes a person from or of Cuba or an American citizen of Cuban descent." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C67115&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Cuban" ;
+                oboInOwl:id "ExO:0000141" ;
+                rdfs:label "Cuban-American" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000142
+obo:ExO_0000142 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "Denotes the inhabitants of the Dominican Republic, a person from there, or their descendants elsewhere." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C67117&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000142" ;
+                rdfs:label "Dominican" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000143
+obo:ExO_0000143 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person having origins in any of the original peoples of the Philippine Islands." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C43393&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000143" ;
+                rdfs:label "Filipino" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000144
+obo:ExO_0000144 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "Denotes inhabitants of Guam, an island in the North Pacific Ocean, about three-quarters of the way from Hawaii to the Philippines, south of the Northern Mariana Islands." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000144" ;
+                rdfs:label "Guamanian" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000145
+obo:ExO_0000145 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C17459&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Central American" ,
+                                           "Cuban" ,
+                                           "Latino" ,
+                                           "Mexican" ,
+                                           "Puerto Rican" ,
+                                           "South American" ,
+                                           "Spanish origin" ;
+                oboInOwl:id "ExO:0000145" ;
+                rdfs:label "Hispanic" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000146
+obo:ExO_0000146 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A general term for a group of culturally similar indigenous peoples inhabiting the Arctic regions of Canada, Greenland, Russia and the United States. In Alaska, the term Eskimo is commonly used, because it includes both Yupik and Inupiat, while Inuit is not accepted as a collective term. In Canada and Greenland, the term Eskimo has fallen out of favor, as it is considered pejorative by the natives and has been replaced by the term Inuit." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C86558&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Eskimo" ;
+                oboInOwl:id "ExO:0000146" ;
+                rdfs:label "Inuit" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000147
+obo:ExO_0000147 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person having origins in any of the original peoples of Japan." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C43392&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000147" ;
+                rdfs:label "Japanese" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000148
+obo:ExO_0000148 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person having origins in any of the original peoples of Korea." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C43395&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000148" ;
+                rdfs:label "Korean" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000149
+obo:ExO_0000149 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C17459&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym """Hispanic
+Spanish origin""" ,
+                                           "Spanish origin" ;
+                oboInOwl:id "ExO:0000149" ;
+                rdfs:label "Latino" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000150
+obo:ExO_0000150 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "Denotes a person from or of Mexico." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C67113&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Hispanic" ;
+                oboInOwl:id "ExO:0000150" ;
+                rdfs:label "Mexican" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000151
+obo:ExO_0000151 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "Denotes an american citizen of Mexican descent." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C67114&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000151" ;
+                rdfs:label "Mexican-American" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000152
+obo:ExO_0000152 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000153 ;
+                obo:IAO_0000115 "A person having origins in any of the original peoples of Hawaii." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C43394&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Hawaiian" ;
+                oboInOwl:id "ExO:0000152" ;
+                rdfs:label "Native Hawaiian" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000153
+obo:ExO_0000153 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                owl:disjointWith obo:ExO_0000154 ,
+                                 obo:ExO_0000155 ,
+                                 obo:ExO_0000156 ,
+                                 obo:ExO_0000157 ,
+                                 obo:ExO_0000158 ;
+                obo:IAO_0000115 "A person of non-specified racial, cultural, or geographic origins." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Other" ;
+                oboInOwl:id "ExO:0000153" ;
+                rdfs:label "Other Race" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000154
+obo:ExO_0000154 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                obo:IAO_0000115 "A person having origins in the original peoples of the Pacific Islands, but not Guam, Hawaii, the Mariana Islands or Samoa." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C107602&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Other Pacific Islander" ;
+                oboInOwl:id "ExO:0000154" ;
+                rdfs:label "Pacific Islander" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000155
+obo:ExO_0000155 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                obo:IAO_0000115 "A person of Puerto Rican descent." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=16.07d&code=C67112&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000155" ;
+                rdfs:label "Puerto Rican" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000156
+obo:ExO_0000156 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                obo:IAO_0000115 "A person having origins in any of the original peoples of Samoa." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C43407&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000156" ;
+                rdfs:label "Samoan" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000157
+obo:ExO_0000157 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                obo:IAO_0000115 "A person having origins in any of the original peoples of Vietnam." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:id "ExO:0000157" ;
+                rdfs:label "Vietnamese" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000158
+obo:ExO_0000158 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000109 ;
+                obo:IAO_0000115 "A person having origins in any of the original peoples of Europe, the Middle East, or North Africa." ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2017-04-07T03:47:29Z" ;
+                oboInOwl:hasDbXref "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI_Thesaurus&version=17.03d&code=C41261&ns=null&type=properties&key=null&b=1&n=0&vse=null" ;
+                oboInOwl:hasOBONamespace "exposure_receptor" ;
+                oboInOwl:hasRelatedSynonym "Caucasian" ,
+                                           "Caucasians" ,
+                                           "Caucasoid" ,
+                                           "Occidental" ,
+                                           "Whites" ;
+                oboInOwl:id "ExO:0000158" ;
+                rdfs:label "White" .
+
+
+###  http://purl.obolibrary.org/obo/ExO_0000159
+obo:ExO_0000159 rdf:type owl:Class ;
+                rdfs:subClassOf obo:ExO_0000055 ;
+                obo:IAO_0000115 "A route by which an exposure to a pregnant female causes an outcome in the fetus that might be observed long after birth" ;
+                oboInOwl:created_by "cgrondin" ;
+                oboInOwl:creation_date "2020-08-17T03:47:29Z" ;
+                oboInOwl:hasOBONamespace "route" ;
+                oboInOwl:id "ExO:0000159" ;
+                rdfs:label "maternal" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

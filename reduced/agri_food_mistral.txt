@@ -1,0 +1,588 @@
+=== OOPS PITFALLS ANALYSIS ===
+Here are the **OOPS pitfalls** detected in the provided ontology, along with **concrete axioms** to address them where possible without introducing new issues:
+
+---
+
+### **1. OOPS:001 - Missing Domain or Range**
+- **Pitfall**: `<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasAttribute>` has no `rdfs:range`.
+  **Fix**: Add a range (e.g., `rdfs:range xsd:string` or a more specific class like `Attribute` if defined).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasAttribute> a owl:ObjectProperty ;
+      rdfs:domain [ a owl:Class ] ;
+      rdfs:range xsd:string .
+  ```
+
+- **Pitfall**: `<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject>` has no `rdfs:range` (only domain is defined).
+  **Fix**: Add a range (e.g., `rdfs:range <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product>`).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject> a owl:ObjectProperty ;
+      rdfs:domain [ a owl:Class ] ;
+      rdfs:range <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product> .
+  ```
+
+- **Pitfall**: `<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isObservedObjectOf>` has no `rdfs:domain` (only range is defined).
+  **Fix**: Add a domain (e.g., `rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product>`).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isObservedObjectOf> a owl:ObjectProperty ;
+      rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product> ;
+      rdfs:range [ a owl:Class ] .
+  ```
+
+- **Pitfall**: `<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput>` has no `rdfs:range`.
+  **Fix**: Add a range (e.g., `rdfs:range <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product>`).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput> a owl:ObjectProperty ;
+      rdfs:domain [ a owl:Class ] ;
+      rdfs:range <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product> .
+  ```
+
+- **Pitfall**: `<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf>` has no `rdfs:domain`.
+  **Fix**: Add a domain (e.g., `rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product>`).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf> a owl:ObjectProperty ;
+      rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product> ;
+      rdfs:range [ a owl:Class ] .
+  ```
+
+- **Pitfall**: `<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput>` has no `rdfs:range`.
+  **Fix**: Add a range (e.g., `rdfs:range <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product>`).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput> a owl:ObjectProperty ;
+      rdfs:domain [ a owl:Class ] ;
+      rdfs:range <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product> .
+  ```
+
+- **Pitfall**: `<http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isOutputOf>` has no `rdfs:domain`.
+  **Fix**: Add a domain (e.g., `rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product>`).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isOutputOf> a owl:ObjectProperty ;
+      rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product> ;
+      rdfs:range [ a owl:Class ] .
+  ```
+
+---
+
+### **2. OOPS:002 - Missing Inverse Of**
+- **Pitfall**: `isInputOf` and `hasInput` are not inverses.
+  **Fix**: Add `owl:inverseOf` if they should be inverses (e.g., `isInputOf` is the inverse of `hasInput`).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf> a owl:ObjectProperty ;
+      owl:inverseOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput> .
+  ```
+
+- **Pitfall**: `isObservedObjectOf` and `hasObservedObject` are not inverses.
+  **Fix**: Add `owl:inverseOf` if they should be inverses (e.g., `isObservedObjectOf` is the inverse of `hasObservedObject`).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isObservedObjectOf> a owl:ObjectProperty ;
+      owl:inverseOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject> .
+  ```
+
+- **Pitfall**: `isOutputOf` and `hasOutput` are not inverses.
+  **Fix**: Add `owl:inverseOf` if they should be inverses (e.g., `isOutputOf` is the inverse of `hasOutput`).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isOutputOf> a owl:ObjectProperty ;
+      owl:inverseOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput> .
+  ```
+
+---
+
+### **3. OOPS:003 - Missing Superproperty**
+- **Pitfall**: `hasInput`, `hasOutput`, and `hasObservedObject` are not declared as subproperties of a broader property (e.g., `hasProduct`).
+  **Fix**: Introduce a superproperty (if semantically justified) and declare them as subproperties. Example:
+  ```turtle
+  :hasProduct a owl:ObjectProperty ;
+      rdfs:label "has product"@en .
+
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput> a owl:ObjectProperty ;
+      rdfs:subPropertyOf :hasProduct .
+
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput> a owl:ObjectProperty ;
+      rdfs:subPropertyOf :hasProduct .
+
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject> a owl:ObjectProperty ;
+      rdfs:subPropertyOf :hasProduct .
+  ```
+
+---
+
+### **4. OOPS:004 - Inconsistent Naming**
+- **Pitfall**: `Clarification` is labeled as "Separation" (duplicate label).
+  **Fix**: Ensure unique labels. Example:
+  ```turtle
+  :Clarification a owl:Class ;
+      rdfs:subClassOf :Separation ;
+      rdfs:label "Clarification"@en .
+  ```
+
+- **Pitfall**: `Maceration` is labeled as "Maceration" (redundant) and also has `rdfs:subClassOf :Separation` (but `Maceration` is a subclass of `Separation`).
+  **Fix**: Clarify hierarchy or label. Example:
+  ```turtle
+  :Maceration a owl:Class ;
+      rdfs:subClassOf :Separation ;
+      rdfs:label "Maceration Process"@en .
+  ```
+
+---
+
+### **5. OOPS:005 - Missing Property Chain Axiom**
+- **Pitfall**: No chain axioms are defined for properties like `isInputOf` → `hasInput` or `isOutputOf` → `hasOutput`.
+  **Fix**: Add chain axioms if properties should compose logically. Example:
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf>
+      owl:propertyChainAxiom ( <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput> ) .
+  ```
+
+---
+
+### **6. OOPS:006 - Inconsistent Property Declaration**
+- **Pitfall**: `rdfs:domain` and `rdfs:range` are defined as anonymous classes (e.g., `[ rdf:type owl:Class ]`).
+  **Fix**: Replace with explicit class URIs where possible. Example:
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject> a owl:ObjectProperty ;
+      rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Operation> ;
+      rdfs:range <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product> .
+  ```
+
+---
+
+### **7. OOPS:007 - Missing Disjointness Axioms**
+- **Pitfall**: No disjointness axioms between `InputProduct`, `IntermediateProduct`, `CoreProduct`, and `ByProduct`.
+  **Fix**: Add disjointness if mutually exclusive. Example:
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#InputProduct> owl:disjointWith <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct> .
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct> owl:disjointWith <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#CoreProduct> .
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#CoreProduct> owl:disjointWith <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ByProduct> .
+  ```
+
+---
+
+### **8. OOPS:008 - Missing Equivalent Property**
+- **Pitfall**: No equivalent property axioms for `hasInput`/`isInputOf`, `hasOutput`/`isOutputOf`, or `hasObservedObject`/`isObservedObjectOf`.
+  **Fix**: Add if properties are meant to be interchangeable. Example:
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput> owl:equivalentProperty <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf> .
+  ```
+
+---
+
+### **9. OOPS:009 - Unnecessary Property**
+- **Pitfall**: `before` is declared as an `owl:ObjectProperty` but lacks domain/range or usage context.
+  **Fix**: Either:
+  - Add domain/range (e.g., `rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Operation>`; `rdfs:range <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Operation>`), or
+  - Replace with `owl:DatatypeProperty` if it links to literals (e.g., timestamps).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#before> a owl:ObjectProperty ;
+      rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Operation> ;
+      rdfs:range <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Operation> ;
+      rdfs:label "precedes in time"@en .
+  ```
+
+---
+
+### **10. OOPS:010 - Inconsistent Property Cardinality**
+- **Pitfall**: No cardinality constraints (e.g., `owl:FunctionalProperty`, `owl:InverseFunctionalProperty`) are defined for properties like `hasInput`/`hasOutput`.
+  **Fix**: Add if needed (e.g., `owl:FunctionalProperty` if an operation should have exactly one input/output).
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput> a owl:FunctionalProperty .
+  ```
+
+---
+
+### **11. OOPS:011 - Missing ObjectProperty Assertion Axioms**
+- **Pitfall**: No examples of how properties like `hasInput`/`hasOutput` are used (e.g., `Operation hasInput Product`).
+  **Fix**: Add assertions if the ontology is meant to be populated. Example:
+  ```turtle
+  :Crushing a owl:Class ;
+      rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation> ;
+      rdfs:label "Crushing"@en .
+
+  :Crushing <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput> :Grappe .
+  ```
+
+---
+
+### **12. OOPS:012 - Missing DatatypeProperty**
+- **Pitfall**: No `owl:DatatypeProperty` for attributes like "temperature," "duration," etc., which are common in process ontologies.
+  **Fix**: Add if needed (e.g., `hasTemperature`, `hasDuration`).
+  ```turtle
+  :hasTemperature a owl:DatatypeProperty ;
+      rdfs:domain <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Operation> ;
+      rdfs:range xsd:decimal ;
+      rdfs:label "temperature (in °C)"@en .
+  ```
+
+---
+
+### **13. OOPS:013 - Missing ObjectProperty Assertion Axioms (for Inverse)**
+- **Pitfall**: No assertions for inverse properties (e.g., `isInputOf`).
+  **Fix**: Add if the ontology is populated. Example:
+  ```turtle
+  :Grappe <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf> :Crushing .
+  ```
+
+---
+
+### **14. OOPS:014 - Missing Symmetry/Transitivity Axioms**
+- **Pitfall**: No symmetry or transitivity axioms for properties like `before` (if temporal ordering is symmetric or transitive).
+  **Fix**: Add if semantically justified. Example:
+  ```turtle
+  <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#before> a owl:TransitiveProperty .
+  ```
+
+---
+
+### **15. OOPS:015 - Missing AnnotationProperty Usage**
+- **Pitfall**: `dc:creator`, `dc:description`, etc., are declared as `owl:AnnotationProperty` but not used consistently (e.g., missing `rdfs:label` for some classes).
+  **Fix**: Add missing annotations or remove unused properties. Example:
+  ```turtle
+  :Bentonite a owl:Class ;
+      rdfs:subClassOf <http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct> ;
+      rdfs:label "Bentonite"@en ;
+      dc:description "A clay used for fining wine."@en .
+  ```
+
+---
+
+### **1
+
+=== PITFALLS DISCOVERY ===
+Here are key **ontological pitfalls** and **resolutive axioms** for the given **wine-making ontology** (AFEO):
+
+---
+
+### **1. Inconsistent Inheritance Hierarchy**
+**Pitfall**: `Clarification` is declared as a subclass of `Separation` but also has `rdfs:label "Separation"@en` (likely a typo, should be `"Clarification"`). Similarly, `Maceration` is a subclass of `Separation` but has operations like `Crushing` (which is a `MainOperation`) as inputs, violating the process-product distinction.
+**Solution**:
+- Correct label: `Clarification rdfs:label "Clarification"@en`.
+- Add **disjointness** between `Separation` and `MainOperation` (or clarify that `Maceration` is a **hybrid** operation):
+  ```turtle
+  :Separation owl:disjointWith :MainOperation .
+  ```
+  **OR** (if `Maceration` is a `MainOperation`):
+  ```turtle
+  :Maceration rdfs:subClassOf :MainOperation .
+  ```
+
+---
+
+### **2. Missing ObjectProperty Restrictions**
+**Pitfall**: Properties like `hasInput`, `hasOutput`, and `isOutputOf` lack **domain/range restrictions** (e.g., `hasInput` should only link `Operation` to `Product`). Some ranges are incomplete (e.g., `hasObservedObject` range is `owl:Class` but should specify `InputProduct` or `IntermediateProduct`).
+**Solution**:
+- Enforce **functional restrictions** (e.g., an operation has exactly one output):
+  ```turtle
+  :hasOutput rdf:type owl:ObjectProperty ;
+      rdfs:domain :Operation ;
+      rdfs:range :Product ;
+      owl:Functional true .
+  ```
+- Restrict `isOutputOf` to ensure outputs are products:
+  ```turtle
+  :isOutputOf rdf:type owl:ObjectProperty ;
+      rdfs:domain :Product ;
+      rdfs:range :Operation .
+  ```
+- Clarify **input/output types** (e.g., `hasInput` for `MainOperation` can only be `InputProduct` or `IntermediateProduct`):
+  ```turtle
+  :hasInput rdf:type owl:ObjectProperty ;
+      rdfs:domain :Operation ;
+      rdfs:range [
+          rdf:type owl:Restriction ;
+          owl:onProperty :isInputOf ;
+          owl:someValuesFrom :Product
+      ] .
+  ```
+
+---
+
+### **3. Ambiguous Product-Operation Relationships**
+**Pitfall**: `Mixing` (e.g., `BacteriaAddition`, `EnzymeAddition`) seems to add **service products** (e.g., `Bacterium`, `Enzyme`) to **intermediate products** (e.g., `Must`), but the ontology lacks axioms to distinguish **consumable** vs. **non-consumable** service products.
+**Solution**:
+- Define **service product types** (e.g., `ConsumableServiceProduct` vs. `NonConsumableServiceProduct`):
+  ```turtle
+  :ConsumableServiceProduct rdf:type owl:Class ;
+      rdfs:subClassOf :ServiceProduct .
+  :NonConsumableServiceProduct rdf:type owl:Class ;
+      rdfs:subClassOf :ServiceProduct ;
+      owl:disjointWith :ConsumableServiceProduct .
+
+  :Bacterium rdfs:subClassOf :ConsumableServiceProduct .
+  :Enzyme rdfs:subClassOf :ConsumableServiceProduct .
+  :Yeast rdfs:subClassOf :ConsumableServiceProduct .
+  ```
+- Add **input constraints** for `Mixing`:
+  ```turtle
+  :Mixing rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasInput ;
+      owl:hasValue [
+          rdf:type owl:Class ;
+          rdfs:subClassOf :IntermediateProduct
+      ]
+  ] .
+  ```
+
+---
+
+### **4. Incomplete Process Chaining**
+**Pitfall**: No axioms enforce **sequential dependencies** between operations (e.g., `Crushing` must precede `Maceration`). Some operations (e.g., `Packaging`) could occur at multiple stages.
+**Solution**:
+- Define **temporal constraints** (e.g., `hasInput` implies `hasOutput` must come before):
+  ```turtle
+  :hasInput rdf:type owl:ObjectProperty ;
+      owl:onProperty :isOutputOf .
+  ```
+- Add **disjointness** for mutually exclusive operations (e.g., `AlcoholicFermentation` vs. `MalolacticFermentation`):
+  ```turtle
+  :AlcoholicFermentation owl:disjointWith :MalolacticFermentation .
+  ```
+
+---
+
+### **5. Overlapping Product Classes**
+**Pitfall**: `Must` and `Must-AF` are both `IntermediateProduct`, but `Must-AF` seems to be a **subtype** of `Must` after alcoholic fermentation. No hierarchy is defined.
+**Solution**:
+- Explicitly subclass `Must-AF`:
+  ```turtle
+  :Must-AF rdfs:subClassOf :Must .
+  ```
+- Add **input/output constraints** for `AlcoholicFermentation`:
+  ```turtle
+  :AlcoholicFermentation rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasInput ;
+      owl:someValuesFrom :Must
+  ], [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasOutput ;
+      owl:someValuesFrom :Must-AF
+  ] .
+  ```
+
+---
+
+### **6. Missing Cardinality Restrictions**
+**Pitfall**: No axioms specify how many **inputs/outputs** an operation can have (e.g., `Crushing` produces `Must` and `Pomace`—should this be enforced as **exactly 2 outputs**?).
+**Solution**:
+- Add **cardinality constraints** (e.g., `Crushing` has exactly 2 outputs):
+  ```turtle
+  :Crushing rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasOutput ;
+      owl:cardinality "2"
+  ] .
+  ```
+- For **optional inputs** (e.g., `Sulfitation` may not always occur):
+  ```turtle
+  :Sulfitation rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasInput ;
+      owl:minCardinality "0"
+  ] .
+  ```
+
+---
+
+### **7. Undefined "Operation" vs. "Product"**
+**Pitfall**: `Operation` and `Product` are top-level classes, but no **disjointness** is enforced between them (e.g., could a `Product` accidentally be an `Operation`?).
+**Solution**:
+- Declare disjointness:
+  ```turtle
+  :Operation owl:disjointWith :Product .
+  ```
+
+---
+### **8. Missing "Default" or "Optional" Service Products**
+**Pitfall**: `Sulphur`, `Nitrogen`, etc., are `ServiceProduct` but not clearly distinguished from **mandatory** vs. **optional** additives.
+**Solution**:
+- Introduce `MandatoryServiceProduct` and `OptionalServiceProduct`:
+  ```turtle
+  :MandatoryServiceProduct rdf:type owl:Class ;
+      rdfs:subClassOf :ServiceProduct .
+  :OptionalServiceProduct rdf:type owl:Class ;
+      rdfs:subClassOf :ServiceProduct ;
+      owl:disjointWith :MandatoryServiceProduct .
+
+  :Sulphur rdfs:subClassOf :MandatoryServiceProduct .
+  :Yeast rdfs:subClassOf :MandatoryServiceProduct .
+  :Bentonite rdfs:subClassOf :OptionalServiceProduct .
+  ```
+
+---
+### **9. Incomplete "FinishedWine" Subtypes**
+**Pitfall**: `RedWine`, `WhiteWine`, and `RoseWine` are disjoint but lack **input constraints** (e.g., `RoseWine` requires `Must` from red grapes + limited maceration).
+**Solution**:
+- Define **input constraints** for wine types:
+  ```turtle
+  :RedWine rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :isOutputOf ;
+      owl:someValuesFrom :Crushing
+  ] .
+  :RoseWine rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :isOutputOf ;
+      owl:someValuesFrom :DirectPressing
+  ] .
+  ```
+
+---
+### **10. Missing "Operation" Disjointness**
+**Pitfall**: Some operations (e.g., `Crushing`, `Maceration`) overlap in functionality (e.g., `Crushing` could be part of `Maceration`).
+**Solution**:
+- Define **disjointness** for non-overlapping operations:
+  ```turtle
+  :Crushing owl:disjointWith :DirectPressing .
+  ```
+
+---
+### **11. Incomplete "ByProduct" Usage**
+**Pitfall**: `Pomace` and `Stem` are `ByProduct`, but no axioms link them to **operations** (e.g., `Crushing` → `Pomace`).
+**Solution**:
+- Add **output constraints** for operations producing byproducts:
+  ```turtle
+  :Crushing rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasOutput ;
+      owl:someValuesFrom :Pomace
+  ] .
+  ```
+
+---
+### **12. Missing "TemporaryStorage" Input/Output**
+**Pitfall**: `TemporaryStorage` is a `PreliminaryOperation` but lacks clear **input/output** constraints (e.g., what products can be stored temporarily?).
+**Solution**:
+- Restrict inputs to `InputProduct` or `IntermediateProduct`:
+  ```turtle
+  :TemporaryStorage rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasInput ;
+      owl:someValuesFrom [
+          rdf:type owl:Class ;
+          rdfs:subClassOf :InputProduct , :IntermediateProduct
+      ]
+  ] .
+  ```
+
+---
+### **13. Missing "Packaging" Variants**
+**Pitfall**: `Bottling` and `CubePackaging` are both `Packaging`, but no axioms enforce **mutual exclusivity** or **input constraints** (e.g., `FinishedWine` must be bottled).
+**Solution**:
+- Add **input constraints** for packaging:
+  ```turtle
+  :Bottling rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasInput ;
+      owl:someValuesFrom :FinishedWine
+  ] .
+  ```
+
+---
+### **14. Incomplete "HeatProcessing"**
+**Pitfall**: `HeatProcessing` is a `MainOperation` but lacks subclasses (e.g., `HotMaceration` should be its only subtype).
+**Solution**:
+- Enforce **exclusive subclassing**:
+  ```turtle
+  :HotMaceration rdfs:subClassOf :HeatProcessing .
+  :HeatProcessing rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty rdfs:subClassOf ;
+      owl:hasValue :HotMaceration ;
+      owl:maxCardinality "1"
+  ] .
+  ```
+
+---
+### **15. Missing "Operation" vs. "Activity" Clarity**
+**Pitfall**: `AgriActivity` (from `aeo`) and `Operation` (from `ontofp`) seem redundant. No alignment or explanation.
+**Solution**:
+- **Option 1**: Merge or align them (if `Operation` is a subset of `AgriActivity`):
+  ```turtle
+  :Operation rdfs:subClassOf :AgriActivity .
+  ```
+- **Option 2**: Define **disjointness** if they represent different concepts:
+  ```turtle
+  :Operation owl:disjointWith :AgriActivity .
+  ```
+
+---
+### **16. Missing "InputProduct" vs. "ServiceProduct" Constraints**
+**Pitfall**: Some `ServiceProduct` (e.g., `Bentonite`) could be mistakenly used as `InputProduct` in operations.
+**Solution**:
+- Add **disjointness**:
+  ```turtle
+  :InputProduct owl:disjointWith :ServiceProduct .
+  ```
+- Restrict `hasInput` for operations to avoid mixing:
+  ```turtle
+  :MainOperation rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasInput ;
+      owl:allValuesFrom :InputProduct , :IntermediateProduct
+  ] .
+  ```
+
+---
+### **17. Incomplete "Fermentation" Subtypes**
+**Pitfall**: `AlcoholicFermentation` and `MalolacticFermentation` are disjoint but lack **input/output constraints** (e.g., `MalolacticFermentation` requires `Must-AF`).
+**Solution**:
+- Add **input constraints**:
+  ```turtle
+  :MalolacticFermentation rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasInput ;
+      owl:someValuesFrom :Must-AF
+  ] .
+  ```
+
+---
+### **18. Missing "Operation" Has-Attribute Constraints**
+**Pitfall**: `hasAttribute` is declared but not restricted (e.g., `Crushing` might have "temperature" as an attribute, but `Fermentation` would need "duration").
+**Solution**:
+- Define **attribute constraints** per operation type:
+  ```turtle
+  :BiochemicalOperation rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasAttribute ;
+      owl:someValuesFrom :Duration
+  ] .
+  :Crushing rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasAttribute ;
+      owl:someValuesFrom :Pressure
+  ] .
+  ```
+
+---
+### **19. Missing "Operation" Preconditions**
+**Pitfall**: No axioms enforce **preconditions** (e.g., `Crushing` requires `Grappe` or `Berry`).
+**Solution**:
+- Add **input constraints**:
+  ```turtle
+  :Crushing rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasInput ;
+      owl:someValuesFrom :Grappe , :Berry
+  ] .
+  ```
+
+---
+### **20. Incomplete "Product" Lifecycle**
+**Pitfall**: No axioms link **byproducts** (e.g., `Stem`) back to operations (e.g., `Destemming`).
+**Solution**:
+- Add **output constraints**:
+  ```turtle
+  :Destemming rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :hasOutput ;
+      owl:someValuesFrom :Stem
+  ] .
+  ```
+
+---
+### **Summary of Key Fixes**:
+1. **Disjointness** for overlapping classes (e.g., `Operation` vs. `Product`).
+2. **Cardinality/value restrictions** for inputs/outputs.
+3. **Hierarchy corrections** (e.g., `Must-AF` as subclass of `Must`).
+4. **Input/output constraints** per operation (e.g., `Crushing` → `Grappe`/`Berry`).
+5. **Service product categorization** (mandatory vs. optional).
+6. **Temporal/logical chaining** (e.g., `hasInput` implies `isOutputOf`).

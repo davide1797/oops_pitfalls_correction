@@ -1,0 +1,27 @@
+P04: Creating unconnected ontology elements
+Affected: http://purl.obolibrary.org/obo/ExO_0000120
+Affected: http://purl.obolibrary.org/obo/ExO_0000130
+Affected: http://purl.obolibrary.org/obo/ExO_0000102
+Affected: http://purl.obolibrary.org/obo/ExO_0000124
+Affected: http://purl.obolibrary.org/obo/ExO_0000035
+
+P08: Missing annotations
+Affected: http://purl.obolibrary.org/obo/exo#targeted_to
+Affected: http://purl.obolibrary.org/obo/BFO_0000050
+Affected: http://purl.obolibrary.org/obo/ExO_0000107
+Affected: http://purl.obolibrary.org/obo/ExO_0000004
+Affected: http://purl.obolibrary.org/obo/ExO_0000017
+
+P11: Missing domain or range in properties
+Affected: http://purl.obolibrary.org/obo/BFO_0000050
+Affected: http://purl.obolibrary.org/obo/BFO_0000051
+Affected: http://purl.obolibrary.org/obo/RO_0002434
+Affected: http://purl.obolibrary.org/obo/exo#characterizes
+Affected: http://purl.obolibrary.org/obo/exo#interacts_with_an_exposure_receptor_via
+
+P13: Inverse relationships not explicitly declared
+
+P22: Using different naming conventions in the ontology
+Affected: http://purl.obolibrary.org/obo/exo#characterizes
+Affected: http://purl.obolibrary.org/obo/RO_0002434
+

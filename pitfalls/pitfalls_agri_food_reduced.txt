@@ -1,0 +1,37 @@
+P04: Creating unconnected ontology elements
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#CoreProduct
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PostOperation
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PreliminaryOperation
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ByProduct
+
+P08: Missing annotations
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#InputProduct
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#ServiceProduct
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#MainOperation
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#PreliminaryOperation
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#Product
+
+P10: Missing disjointness
+
+P11: Missing domain or range in properties
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#before
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasAttribute
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasInput
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput
+
+P13: Inverse relationships not explicitly declared
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isOutputOf
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isObservedObjectOf
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#isInputOf
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasOutput
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#hasObservedObject
+
+P21: Using a miscellaneous class
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#OtherAdditives
+
+P22: Using different naming conventions in the ontology
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v1/afeo#FreeRun-Juice
+Affected: http://www.mistea.supagro.inra.fr/ontologies/2016/v4/ontofp#IntermediateProduct
+

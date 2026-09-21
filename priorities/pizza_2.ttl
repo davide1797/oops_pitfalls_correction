@@ -1,0 +1,219 @@
+@prefix : <https://raw.githubusercontent.com/owlcs/pizza-ontology/refs/heads/master/pizza.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:American rdfs:label "Americana"@pt .
+
+:AmericanHot rdfs:label "AmericanaPicante"@pt .
+
+:AnchoviesTopping rdfs:label "CoberturaDeAnchovies"@pt .
+
+:ArtichokeTopping rdfs:label "CoberturaDeArtichoke"@pt .
+
+:AsparagusTopping rdfs:label "CoberturaDeAspargos"@pt .
+
+:Cajun rdfs:label "Cajun"@pt .
+
+:CajunSpiceTopping rdfs:label "CoberturaDeCajun"@pt .
+
+:CaperTopping rdfs:label "CoberturaDeCaper"@pt .
+
+:Capricciosa rdfs:label "Capricciosa"@pt .
+
+:Caprina rdfs:label "Caprina"@pt .
+
+:CheeseTopping rdfs:label "CoberturaDeQueijo"@pt .
+
+:CheeseyPizza rdfs:label "PizzaComQueijo"@pt .
+
+:CheeseyVegetableTopping rdfs:label "CoberturaDeQueijoComVegetais"@pt .
+
+:ChickenTopping rdfs:label "CoberturaDeFrango"@pt .
+
+:Country rdfs:label "Pais"@pt .
+
+:DeepPanBase rdfs:label "BaseEspessa"@pt .
+
+:Fiorentina rdfs:label "Fiorentina"@pt .
+
+:FishTopping rdfs:label "CoberturaDePeixe"@pt .
+
+:FourCheesesTopping rdfs:label "CoberturaQuatroQueijos"@pt .
+
+:FourSeasons rdfs:label "QuatroQueijos"@pt .
+
+:FruitTopping rdfs:label "CoberturaDeFrutas"@pt .
+
+:FruttiDiMare rdfs:label "FrutosDoMar"@pt .
+
+:GarlicTopping rdfs:label "CoberturaDeAlho"@pt .
+
+:Giardiniera rdfs:label "Giardiniera"@pt .
+
+:GoatsCheeseTopping rdfs:label "CoberturaDeQueijoDeCabra"@pt .
+
+:GorgonzolaTopping rdfs:label "CoberturaDeGorgonzola"@pt .
+
+:GreenPepperTopping rdfs:label "CoberturaDePimentaoVerde"@pt .
+
+:HamTopping rdfs:label "CoberturaDePresunto"@pt .
+
+:HerbSpiceTopping rdfs:label "CoberturaDeErvas"@pt .
+
+:Hot rdfs:label "Picante"@pt .
+
+:HotGreenPepperTopping rdfs:label "CoberturaDePimentaoVerdePicante"@pt .
+
+:HotSpicedBeefTopping rdfs:label "CoberturaDeBifePicante"@pt .
+
+:IceCream rdfs:label "Sorvete"@pt .
+
+:InterestingPizza rdfs:label "PizzaInteressante"@pt .
+
+:JalapenoPepperTopping rdfs:label "CoberturaDeJalapeno"@pt .
+
+:LaReine rdfs:label "LaReine"@pt .
+
+:LeekTopping rdfs:label "CoberturaDeLeek"@pt .
+
+:Margherita rdfs:label "Margherita"@pt .
+
+:MeatTopping rdfs:label "CoberturaDeCarne"@pt .
+
+:MeatyPizza rdfs:label "PizzaDeCarne"@pt .
+
+:Medium rdfs:label "Media"@pt .
+
+:Mild rdfs:label "NaoPicante"@pt .
+
+:MixedSeafoodTopping rdfs:label "CoberturaDeFrutosDoMarMistos"@pt .
+
+:MozzarellaTopping rdfs:label "CoberturaDeMozzarella"@pt .
+
+:Mushroom rdfs:label "Cogumelo"@pt .
+
+:MushroomTopping rdfs:label "CoberturaDeCogumelo"@pt .
+
+:NamedPizza rdfs:label "PizzaComUmNome"@pt .
+
+:Napoletana rdfs:label "Napoletana"@pt .
+
+:NonVegetarianPizza rdfs:label "PizzaNaoVegetariana"@pt .
+
+:NutTopping rdfs:label "CoberturaDeCastanha"@pt .
+
+:OliveTopping rdfs:label "CoberturaDeAzeitona"@pt .
+
+:OnionTopping rdfs:label "CoberturaDeCebola"@pt .
+
+:ParmaHamTopping rdfs:label "CoberturaDePrezuntoParma"@pt .
+
+:Parmense rdfs:label "Parmense"@pt .
+
+:ParmesanTopping rdfs:label "CoberturaDeParmesao"@pt .
+
+:PeperonataTopping rdfs:label "CoberturaPeperonata"@pt .
+
+:PeperoniSausageTopping rdfs:label "CoberturaDeCalabreza"@pt .
+
+:PepperTopping rdfs:label "CoberturaDePimentao"@pt .
+
+:PetitPoisTopping rdfs:label "CoberturaPetitPois"@pt .
+
+:PineKernels rdfs:label "CoberturaPineKernels"@pt .
+
+:PolloAdAstra rdfs:label "PolloAdAstra"@pt .
+
+:PrawnsTopping rdfs:label "CoberturaDeCamarao"@pt .
+
+:PrinceCarlo rdfs:label "CoberturaPrinceCarlo"@pt .
+
+:QuattroFormaggi rdfs:label "QuatroQueijos"@pt .
+
+:RealItalianPizza rdfs:label "PizzaItalianaReal"@pt .
+
+:RedOnionTopping rdfs:label "CoberturaDeCebolaVermelha"@pt .
+
+:RocketTopping rdfs:label "CoberturaRocket"@pt .
+
+:Rosa rdfs:label "Rosa"@pt .
+
+:RosemaryTopping rdfs:label "CoberturaRosemary"@pt .
+
+:SauceTopping rdfs:label "CoberturaEmMolho"@pt .
+
+:Siciliana rdfs:label "Siciliana"@pt .
+
+:SlicedTomatoTopping rdfs:label "CoberturaDeTomateFatiado"@pt .
+
+:SloppyGiuseppe rdfs:label "SloppyGiuseppe"@pt .
+
+:Soho rdfs:label "Soho"@pt .
+
+:SpicyPizza rdfs:label "PizzaTemperada"@pt .
+
+:SpicyPizzaEquivalent rdfs:label "PizzaTemperadaEquivalente"@pt .
+
+:SpicyTopping rdfs:label "CoberturaTemperada"@pt .
+
+:SpinachTopping rdfs:label "CoberturaDeEspinafre"@pt .
+
+:SultanaTopping rdfs:label "CoberturaSultana"@pt .
+
+:SundriedTomatoTopping rdfs:label "CoberturaDeTomateRessecadoAoSol"@pt .
+
+:SweetPepperTopping rdfs:label "CoberturaDePimentaoDoce"@pt .
+
+:ThinAndCrispyBase rdfs:label "BaseFinaEQuebradica"@pt .
+
+:TobascoPepperSauce rdfs:label "MolhoTobascoPepper"@pt .
+
+:TomatoTopping rdfs:label "CoberturaDeTomate"@pt .
+
+:UnclosedPizza rdfs:label "PizzaAberta"@pt .
+
+:ValuePartition rdfs:label "ValorDaParticao"@pt .
+
+:VegetableTopping rdfs:label "CoberturaDeVegetais"@pt .
+
+:VegetarianPizza rdfs:label "PizzaVegetariana"@pt .
+
+:VegetarianPizzaEquivalent1 rdfs:label "PizzaVegetarianaEquivalente1"@pt .
+
+:VegetarianPizzaEquivalent2 rdfs:label "PizzaVegetarianaEquivalente2"@pt .
+
+:VegetarianTopping rdfs:label "CoberturaVegetariana"@pt .
+
+:Veneziana rdfs:label "Veneziana"@pt .
+
+:hasBase rdfs:domain :Pizza ;
+    rdfs:range :PizzaBase ;
+    owl:inverseOf :isBaseOf .
+
+:hasIngredient rdfs:domain :Food ;
+    rdfs:range :Food ;
+    owl:inverseOf :isIngredientOf .
+
+:hasSpiciness rdfs:range :Spiciness .
+
+:hasTopping rdfs:domain :Pizza ;
+    rdfs:range :PizzaTopping ;
+    owl:inverseOf :isToppingOf .
+
+:Spiciness rdfs:label "Tempero"@pt .
+
+:isBaseOf rdfs:domain :PizzaBase ;
+    rdfs:range :Pizza .
+
+:isIngredientOf rdfs:domain :Food ;
+    rdfs:range :Food .
+
+:isToppingOf rdfs:domain :PizzaTopping ;
+    rdfs:range :Pizza .
+
+:PizzaBase rdfs:label "BaseDaPizza"@pt .
+
+:PizzaTopping rdfs:label "CoberturaDaPizza"@pt .
+
+:Pizza rdfs:label "Pizza"@en .
+

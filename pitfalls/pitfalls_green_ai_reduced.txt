@@ -1,0 +1,20 @@
+P04: Creating unconnected ontology elements
+Affected: http://ontology.ethereal.cz/irao/Software
+
+P08: Missing annotations
+Affected: http://vivoweb.org/ontology/core#Project
+Affected: http://xmlns.com/foaf/0.1/Person
+
+P10: Missing disjointness
+
+P13: Inverse relationships not explicitly declared
+Affected: http://ontology.ethereal.cz/irao/hasAuthor
+Affected: https://w3id.org/Green-AI-Ontology/ontology/hasProvider
+Affected: https://w3id.org/Green-AI-Ontology/ontology/hasLocation
+Affected: https://w3id.org/Green-AI-Ontology/ontology/hasEnergyMetricsAllExperiments
+Affected: https://w3id.org/Green-AI-Ontology/ontology/usedEnergyMeasurementServiceAllExperiments
+
+P34: Untyped class
+Affected: http://xmlns.com/foaf/0.1/Person
+Affected: http://vivoweb.org/ontology/core#Project
+
