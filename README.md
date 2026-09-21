@@ -18,5 +18,5 @@ The repository comprises the following resources:
 
 ## Authored by:
 Davide Di Pierro davide.di-pierro@umontpellier.fr <br/>
-Danai Symeonidou danai.symeonidou@inrae.fr <br/>
+Danaï Symeonidou danai.symeonidou@inrae.fr <br/>
 Lylia Abrouk lylia.abrouk@lirmm.fr <br/>
