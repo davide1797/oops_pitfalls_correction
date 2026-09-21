@@ -14,7 +14,7 @@ The repository comprises the following resources:
 - [results](results) folder containing the results of the experiments and the answers of the models to our queries.
 
 ## Publications
-- Davide Di Pierro, Danaï Symeonidou2, and Lylia Abrouk: _Evaluating LLMs for Automatic Correction and Detection of Ontology Pitfalls._  17th Workshop on Ontology Design and Patterns @ ISWC 2026.
+- Davide Di Pierro, Danaï Symeonidou, and Lylia Abrouk: _Evaluating LLMs for Automatic Correction and Detection of Ontology Pitfalls._  17th Workshop on Ontology Design and Patterns @ ISWC 2026.
 
 ## Authored by:
 Davide Di Pierro davide.di-pierro@umontpellier.fr <br/>
