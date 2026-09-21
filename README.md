@@ -9,9 +9,11 @@ The construction of ontologies is one of the most relevant tasks in knowledge en
 ## Content
 
 The repository comprises the following resources:
-- [resources](resources) folder with the selected ontology for classification,
-- [src](src) folder containing the necessary Python scripts to perform the analysis and visualise the results,
-- [results](results) folder containing the results of the experiments and the answers of the models to our queries.
+- [original](original) folder containing the original ontology sources;
+- [pitfalls](pitfalls) folder containing the OOPS! pitfalls for every ontology;
+- [reduced](reduced) containing the reduced versions of the ontologies;
+- [resources](res) containing the result of the model predictions per ontology and model,
+- [src](src) containing the necessary Python scripts to perform the analysis and visualise the results.
 
 ## Publications
 - Davide Di Pierro, Danaï Symeonidou, and Lylia Abrouk: _Evaluating LLMs for Automatic Correction and Detection of Ontology Pitfalls._  17th Workshop on Ontology Design and Patterns @ ISWC 2026.
