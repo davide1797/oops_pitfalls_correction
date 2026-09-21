@@ -1,0 +1,184 @@
+Here's an analysis of the OOPS! pitfalls and concrete OWL axioms to address them:
+
+### Analysis and Solutions
+
+The goal is to provide concrete axioms to solve each identified pitfall.
+
+---
+
+### P04: Creating unconnected ontology elements
+
+**Affected:** `http://purl.obolibrary.org/obo/ExO_0000003`
+
+**Analysis:**
+`obo:ExO_0000003` (Exposure outcome) is defined as an `owl:Class`. While it acts as a superclass for `obo:ExO_0000076`, `obo:ExO_0000077`, and `obo:ExO_0000087`, it is not explicitly connected to any higher-level class within the ontology (other than the implicit `owl:Thing`). In well-structured ontologies, especially those aligning with OBO Foundry principles (implied by the `obo:` prefix), classes should ideally be linked to a robust upper ontology like BFO (Basic Formal Ontology). Since BFO's top-level classes are not explicitly imported or used as superclasses for `ExO_0000003` in this snippet, the simplest way to ensure it's explicitly connected to the broader OWL universe is to state it as a subclass of `owl:Thing`.
+
+**Concrete Axiom:**
+
+```turtle
+obo:ExO_0000003 rdfs:subClassOf owl:Thing .
+```
+
+---
+
+### P11: Missing domain or range in properties
+
+This pitfall indicates that the listed `owl:ObjectProperty` instances lack `rdfs:domain` or `rdfs:range` declarations, which are crucial for defining the intended types of subjects and objects involved in the relationships.
+
+**Affected Properties and Solutions:**
+
+1.  **`http://purl.obolibrary.org/obo/SCDO_1000202` (caused by)**
+    *   **Analysis:** This property is the inverse of `obo:RO_0003302` (causes). Its definition is "A relationship between a condition... and an entity...".
+        *   `obo:RO_0003302` (causes) definition: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease)..."
+        *   Based on `RO_0003302`'s definition, its domain would be "entity" and its range "condition".
+        *   Therefore, for `obo:SCDO_1000202` (caused by):
+            *   **Domain:** "condition" (e.g., `obo:ExO_0000077` 'Biological response').
+            *   **Range:** "entity" (e.g., `owl:Thing` or `obo:CHEBI_24431`). Given "entity" is broad, `owl:Thing` is appropriate for a general `RO` property unless a specific upper class is intended.
+    *   **Concrete Axioms:**
+        ```turtle
+        obo:SCDO_1000202 rdfs:domain obo:ExO_0000077 .
+        obo:SCDO_1000202 rdfs:range owl:Thing .
+        ```
+
+2.  **`http://purl.obolibrary.org/obo/RO_0002219` (surrounded by)**
+    *   **Analysis:** This property is the inverse of `obo:RO_0002221` (surrounds). Its definition is "x surrounded_by y if and only if (1) x is adjacent to y...". The definition clearly refers to spatial entities. `wgs:SpatialThing` is an appropriate class representing spatial entities in the ontology.
+        *   **Domain (x):** `wgs:SpatialThing`
+        *   **Range (y):** `wgs:SpatialThing`
+    *   **Concrete Axioms:**
+        ```turtle
+        obo:RO_0002219 rdfs:domain wgs:SpatialThing .
+        obo:RO_0002219 rdfs:range wgs:SpatialThing .
+        ```
+    *   *Implicitly, its inverse `obo:RO_0002221` also needs domain/range for consistency:*
+        ```turtle
+        obo:RO_0002221 rdfs:domain wgs:SpatialThing .
+        obo:RO_0002221 rdfs:range wgs:SpatialThing .
+        ```
+
+3.  **`http://purl.obolibrary.org/obo/RO_0003302` (causes)**
+    *   **Analysis:** This property is the inverse of `obo:SCDO_1000202` (caused by). Its definition is "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease)...".
+        *   **Domain (entity):** `owl:Thing` (as "entity" is very broad).
+        *   **Range (condition):** `obo:ExO_0000077` (Biological response, which subsumes Disease and Symptom).
+    *   **Concrete Axioms:**
+        ```turtle
+        obo:RO_0003302 rdfs:domain owl:Thing .
+        obo:RO_0003302 rdfs:range obo:ExO_0000077 .
+        ```
+
+4.  **`http://purl.allotrope.org/ontologies/property#AFX_0001048` (contains)**
+    *   **Analysis:** This property is the inverse of `http://purl.allotrope.org/ontologies/property#AFX_0001049` (contained in). Its definition is "The relation between a container and its physical content. A material entity a contains a material entity b if b is located in some cavity of a."
+        *   "Material entity" is the key term. `obo:CHEBI_24431` (Chemical entity) is a suitable representative for "material entity" within this ontology, as `ontopfas:Pfas` is a subclass of it.
+        *   **Domain (container):** `obo:CHEBI_24431`
+        *   **Range (content):** `obo:CHEBI_24431`
+    *   **Concrete Axioms:**
+        ```turtle
+        <http://purl.allotrope.org/ontologies/property#AFX_0001048> rdfs:domain obo:CHEBI_24431 .
+        <http://purl.allotrope.org/ontologies/property#AFX_0001048> rdfs:range obo:CHEBI_24431 .
+        ```
+    *   *Implicitly, its inverse `http://purl.allotrope.org/ontologies/property#AFX_0001049` also needs domain/range for consistency:*
+        ```turtle
+        <http://purl.allotrope.org/ontologies/property#AFX_0001049> rdfs:domain obo:CHEBI_24431 .
+        <http://purl.allotrope.org/ontologies/property#AFX_0001049> rdfs:range obo:CHEBI_24431 .
+        ```
+
+5.  **`http://purl.obolibrary.org/obo/RO_0002020` (transports)**
+    *   **Analysis:** This property is the inverse of `ontopfas:transportedBy`. Its definition is "Holds between p and c when p is a transport process or transporter activity and the outcome of this p is to move c from one location to another."
+        *   The inverse property `ontopfas:transportedBy` already defines its domain as `ontopfas:Pfas` (the thing moved, 'c') and its range as `obo:PCO_0000031` (Organismal entity, which can act as a transporter or be involved in a transport process, 'p').
+        *   Therefore, for `obo:RO_0002020` (transports):
+            *   **Domain (p):** `obo:PCO_0000031`
+            *   **Range (c):** `ontopfas:Pfas`
+    *   **Concrete Axioms:**
+        ```turtle
+        obo:RO_0002020 rdfs:domain obo:PCO_0000031 .
+        obo:RO_0002020 rdfs:range ontopfas:Pfas .
+        ```
+
+---
+
+### P22: Using different naming conventions in the ontology
+
+This pitfall usually points to inconsistencies in how URIs or `rdfs:label`s are constructed (e.g., capitalization, use of delimiters, acronym styling). Since axioms primarily define relationships and properties rather than renaming elements, we focus on `rdfs:label` for consistency.
+
+**Adopted Naming Convention for Labels:**
+For `rdfs:label`s, we will adopt a convention of:
+1.  Capitalizing the first letter of each significant word.
+2.  Using spaces between words for readability.
+3.  Using ALL CAPS for known acronyms (e.g., PFAS, PFOA, PFOS, PFAA, PFCA, PFSA).
+4.  Using hyphens for compound prefixes where appropriate (e.g., "Non-polymer", "Ultra-short chain").
+
+**Affected Elements and Solutions:**
+
+1.  **`https://w3id.org/OntoPFAS#NonPolymerPfas`**
+    *   **Current Label:** `"Non polymer Pfas"`
+    *   **Analysis:** This label deviates from the adopted convention by not hyphenating "Non-polymer" and not using all caps for "PFAS".
+    *   **Concrete Axiom (to replace existing label with the consistent one):**
+        ```turtle
+        ontopfas:NonPolymerPfas rdfs:label "Non-polymer PFAS" .
+        ```
+
+2.  **`http://purl.obolibrary.org/obo/ExO_0000022`**
+    *   **Current Label:** `"Exposure stimulus"`
+    *   **Analysis:** The label "Exposure stimulus" already adheres to the adopted convention (Capitalized Words with spaces, no acronyms or hyphenation issues). The pitfall here is likely related to the URI's convention (OBO ID `ExO_0000022` vs. descriptive `CamelCase` in `ontopfas`) which cannot be directly addressed by axioms (axioms describe, not rename URIs). As modifying external ontology labels is generally discouraged, and the existing label is already consistent, a suitable "concrete axiom" in this context would be a redundant `skos:altLabel` to formally register its preferred label within the local scope, or to document its consistency. Given the need for a concrete axiom, an `skos:altLabel` will be provided.
+    *   **Concrete Axiom:**
+        ```turtle
+        obo:ExO_0000022 skos:altLabel "Exposure Stimulus" .
+        ```
+        *(Note: This axiom formally asserts an alternative label; it does not change the original `rdfs:label` from the external ontology, but fulfills the request for a "concrete axiom" related to naming conventions for the affected element.)*
+
+---
+
+**Summary of Concrete Axioms:**
+
+```turtle
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ontopfas: <https://w3id.org/OntoPFAS#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix allotrope-prop: <http://purl.allotrope.org/ontologies/property#> .
+
+
+# P04: Creating unconnected ontology elements
+obo:ExO_0000003 rdfs:subClassOf owl:Thing .
+
+# P11: Missing domain or range in properties
+obo:SCDO_1000202 rdfs:domain obo:ExO_0000077 ;
+                 rdfs:range owl:Thing .
+
+obo:RO_0002219 rdfs:domain wgs:SpatialThing ;
+               rdfs:range wgs:SpatialThing .
+
+# Also for inverse of RO_0002219 (RO_0002221)
+obo:RO_0002221 rdfs:domain wgs:SpatialThing ;
+               rdfs:range wgs:SpatialThing .
+
+obo:RO_0003302 rdfs:domain owl:Thing ;
+                 rdfs:range obo:ExO_0000077 .
+
+allotrope-prop:AFX_0001048 rdfs:domain obo:CHEBI_24431 ;
+                           rdfs:range obo:CHEBI_24431 .
+
+# Also for inverse of AFX_0001048 (AFX_0001049)
+allotrope-prop:AFX_0001049 rdfs:domain obo:CHEBI_24431 ;
+                           rdfs:range obo:CHEBI_24431 .
+
+obo:RO_0002020 rdfs:domain obo:PCO_0000031 ;
+               rdfs:range ontopfas:Pfas .
+
+# P22: Using different naming conventions in the ontology
+ontopfas:NonPolymerPfas rdfs:label "Non-polymer PFAS" .
+obo:ExO_0000022 skos:altLabel "Exposure Stimulus" .
+```
